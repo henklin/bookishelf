@@ -1,4 +1,11 @@
 '''
+Created on 21 nov. 2016
+
+@author: Henrik
+'''
+
+
+'''
 Created on 18 nov. 2016
 
 @author: Henrik
@@ -13,16 +20,18 @@ class Books:
 
     exposed = True
     
-    def GET(self):
-        return ('Hello');
-    
+    def GET(self, bookid):
+        conn1 = pymysql.connect(host='localhost', port=3306, user='root', passwd='admin', db='mydb', autocommit=True)
+        cur = conn1.cursor()
+        cur.execute("SELECT name FROM book where id=%s", (bookid,))
+        
     def POST(self, bookid, userid):
         
         conn1 = pymysql.connect(host='localhost', port=3306, user='root', passwd='admin', db='mydb', autocommit=True)
 
         cur = conn1.cursor()
         
-        cur.execute("SELECT price FROM book WHERE id=%s", (bookid,))
+        cur.execute("SELECT name FROM book WHERE id=%s", (bookid,))
         
         bookprice = cur.fetchone()
         
@@ -36,11 +45,7 @@ class Books:
         newcredit = (usercreditint - bookpriceint)
         
         
-        if(bookprice > usercredit):
-            return('Not enough credit')
-        else:
-            cur.execute("UPDATE user SET credit=%s WHERE userid=%s", (newcredit, userid))
-            cur.execute("UPDATE book SET qty = qty - 1 WHERE id=%s", (bookid,))
+       
         
         #cur.commit()
         cur.close
