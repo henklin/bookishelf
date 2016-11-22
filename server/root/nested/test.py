@@ -9,6 +9,7 @@ import string
 import sqlite3
 import pymysql
 from books import Books
+from book import Book
 
 ##conn = sqlite3.connect('C:/Users/Henrik/test.db')
 ##c=conn.cursor()
@@ -24,7 +25,12 @@ if __name__ == '__main__':
         }
     )
     
-    
+    cherrypy.tree.mount(
+        Book(), '/api/book',
+        {'/':
+            {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
+        }
+    )
 
     cherrypy.engine.start()
     cherrypy.engine.block()

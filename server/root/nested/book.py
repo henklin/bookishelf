@@ -16,33 +16,32 @@ import pymysql
 ##conn = sqlite3.connect('C:/Users/Henrik/test.db')
 ##c=conn.cursor()
 
-class Books:
-
+class Book:
+    
+     
+        
     exposed = True
     
     def GET(self, bookid):
         conn1 = pymysql.connect(host='localhost', port=3306, user='root', passwd='admin', db='mydb', autocommit=True)
         cur = conn1.cursor()
-        cur.execute("SELECT name FROM book where id=%s", (bookid,))
+        cur.execute("SELECT title FROM book where id=%s", (bookid,))
+        name = cur.fetchone()
+        return name
         
-    def POST(self, bookid, userid):
+    def POST(self, id, title, qty, price):
         
         conn1 = pymysql.connect(host='localhost', port=3306, user='root', passwd='admin', db='mydb', autocommit=True)
+        
+        
 
         cur = conn1.cursor()
         
-        cur.execute("SELECT name FROM book WHERE id=%s", (bookid,))
+        cur.execute("INSERT INTO book VALUES(%s, %s, %s, %s)", (id, title, qty, price))
         
-        bookprice = cur.fetchone()
+                
         
-        cur.execute("SELECT credit FROM user WHERE userid=%s", (userid,))
-        
-        usercredit = cur.fetchone()
-        
-        usercreditint = int(usercredit[0])
-        bookpriceint = int(bookprice[0])
-        
-        newcredit = (usercreditint - bookpriceint)
+
         
         
        
