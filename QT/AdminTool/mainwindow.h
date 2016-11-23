@@ -15,6 +15,13 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private slots:
+    void on_tableWidget_activated(const QModelIndex &index);
+
+    void on_pushButton_clicked();
+
+    void on_pushButton_4_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
