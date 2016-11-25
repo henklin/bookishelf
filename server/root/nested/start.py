@@ -8,8 +8,10 @@ import random
 import string
 import sqlite3
 import pymysql
-from books import Books
+from checkout import Checkout
 from book import Book
+from index import Index
+from login import Login
 
 ##conn = sqlite3.connect('C:/Users/Henrik/test.db')
 ##c=conn.cursor()
@@ -17,9 +19,19 @@ from book import Book
 
 
 if __name__ == '__main__':
+    
+    
+    
+    config = {
+    '/': {
+        'tools.encode.debug': True,
+        'tools.encode.text_only': False,
+        'tools.encode.encoding': 'utf8'
+    },
+}
 
     cherrypy.tree.mount(
-        Books(), '/api/books',
+        Checkout(), '/api/checkout',
         {'/':
             {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
         }
@@ -27,6 +39,22 @@ if __name__ == '__main__':
     
     cherrypy.tree.mount(
         Book(), '/api/book',
+        {'/':
+            {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
+        }
+    )
+    
+    
+    cherrypy.tree.mount(
+        Index(), '/api',
+        {'/':
+            {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
+        }
+    )
+    
+    
+    cherrypy.tree.mount(
+        Login(), '/api/login',
         {'/':
             {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
         }

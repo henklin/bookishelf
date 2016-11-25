@@ -52,8 +52,11 @@ class Book:
 
     <font color="#EBF5FB"><p align="center">Enter your details to Login</font>
 
-    <form action="http://localhost:8080/api/books/" method="post">
-    <table align="center">
+    <form action="http://foo.com" method="post">
+    <input name="bookid" value="1">
+    <input name="userid" value="1">
+    <button>Send my greetings</button>
+</form>
 
     <tr><td>
     User-ID:</td><td align="left"><input type="text" name="bookid" maxlength="32" size="16">
