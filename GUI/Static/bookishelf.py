@@ -88,19 +88,29 @@ class StringGenerator(object):
 
 <tr>
 <td align="center">
-<input type="submit" name="Howtobepopular" value="Buy">
+<input type="hidden" name="bookID" value="howtobepopular">
+<input type="hidden" name="userID" value="01">
+<input type="submit" value="Buy">
 </td>
 <td align="center">
-<input type="submit" name="Macbeth" value="Buy">
+<input type="hidden" name="bookID" value="macbeth">
+<input type="hidden" name="userID" value="02">
+<input type="submit" value="Buy">
 </td>
 <td align="center">
-<input type="submit" name="Physics" value="Buy">
+<input type="hidden" name="bookID" value="physics">
+<input type="hidden" name="userID" value="03">
+<input type="submit" value="Buy">
 </td>
 <td align="center">
-<input type="submit" name="DestinedtoReign" value="Buy">
+<input type="hidden" name="bookID" value="destinedtoreign">
+<input type="hidden" name="userID" value="04">
+<input type="submit" value="Buy">
 </td>
 <td align="center">
-<input type="submit" name="DavidCopperfield" value="Buy">
+<input type="hidden" name="bookID" value="davidcopperfield">
+<input type="hidden" name="userID" value="05">
+<input type="submit" value="Buy">
 </td>
 
 </tr>
