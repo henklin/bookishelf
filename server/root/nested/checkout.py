@@ -41,7 +41,7 @@ class Checkout:
 <br><br><br>
 <h2>
 <div align= "center" >
-(%s)
+%s
 </div>
 </h2>
 <div  style="height: 50; width: 300px;"> </div>
@@ -50,7 +50,7 @@ class Checkout:
 </div>
 <br><br>
 <div align="center">
-<p><b>Amount: 150</b></p><br><br>
+<p><b>Amount: %s</b></p><br><br>
 </div>
 <br><br>
 <form action="conf.html">
@@ -67,7 +67,7 @@ Check Out
 </div>
 </form>
 </body>
-</html> """ % booktitle[0])
+</html> """ % (booktitle[0], bookprice[0]))
     
     def POST(self, bookid, userid):
         
