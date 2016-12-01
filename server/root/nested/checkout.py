@@ -22,6 +22,8 @@ class Checkout:
 
         cur = conn1.cursor()
         
+        cur.execute("INSERT INTO shoppingCart VALUES(1, %s, %s)" % (bookid, userid))
+        
         cur.execute("SELECT price FROM book WHERE id=(%s)" % bookid )
         
         bookprice = cur.fetchone()

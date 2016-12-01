@@ -70,9 +70,12 @@ class Index:
 <th colspan=5 align="center">Trending Books</th>
 <tr></tr></tr>
 <tr>
-<td><a href="book1.html">
+<td><form method="get" action="http://127.0.0.1:8080/api/bookPage">
+<input type="hidden" name="bookid" value="1">
+<button>
 <img height="300" width="200" src="http://www.images-booknode.com/book_cover/2574/full/le-jour-ou-j-ai-voulu-devenir-populaire-2573812.jpg" alt="book1">
-</a></td>
+</button>
+</form></td>
 
 <td><a href="book2.html">
 <img height="300" width="200" src="https://s-media-cache-ak0.pinimg.com/736x/6b/cf/4f/6bcf4fb135c5a3e68af6b3cef6f843c0.jpg" alt="book2">

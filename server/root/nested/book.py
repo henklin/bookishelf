@@ -89,7 +89,7 @@ class Book:
 </html>
 """
         
-    def POST(self, id, title, qty, price):
+    def POST(self, id, title, qty, price, image):
         
         conn1 = pymysql.connect(host='localhost', port=3306, user='root', passwd='admin', db='mydb', autocommit=True)
         
@@ -97,7 +97,7 @@ class Book:
 
         cur = conn1.cursor()
         
-        cur.execute("INSERT INTO book VALUES(%s, %s, %s, %s)", (id, title, qty, price))
+        cur.execute("INSERT INTO book VALUES(%s, %s, %s, %s, 0, %s)", (id, title, qty, price,image))
         
                 
         

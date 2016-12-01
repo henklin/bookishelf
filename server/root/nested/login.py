@@ -23,9 +23,15 @@ class Login:
         cur = conn1.cursor()
         
         
-        cur.execute("SELECT username, password FROM user WHERE username=%s", (username,))
+        cur.execute("SELECT password FROM user WHERE username=%s", (username,))
         
-        usercredit = cur.fetchone()
+        
+        
+        
+        userpass = cur.fetchone()
+        
+        if(userpass==password):
+            return 'Success!'
         
        
         
@@ -35,6 +41,6 @@ class Login:
         
         #cur.commit()
         cur.close
-        return usercredit
+        return 1
         
        # return ('The book: %s The user: %s' % (dbquery1, dbquery2))
