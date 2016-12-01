@@ -2,6 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QHttpMultiPart>
+#include <QUrlQuery>
+#include <QNetworkReply>
 
 namespace Ui {
 class MainWindow;
@@ -14,16 +19,20 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void getbooks();
 
 private slots:
-    void on_tableWidget_activated(const QModelIndex &index);
-
-    void on_pushButton_clicked();
-
     void on_pushButton_4_clicked();
+    void replyFinished (QNetworkReply* reply);
+
 
 private:
+    QNetworkAccessManager *manager;
     Ui::MainWindow *ui;
+
+
+private:
+
 };
 
 #endif // MAINWINDOW_H
