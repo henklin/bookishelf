@@ -26,6 +26,8 @@ private slots:
     void replyFinished (QNetworkReply* reply);
 
 
+    void on_pushButton_clicked();
+
 private:
     QNetworkAccessManager *manager;
     Ui::MainWindow *ui;

@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QMessageBox>
 
 #include <iostream>
 using namespace std;
@@ -9,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    manager = new QNetworkAccessManager(this);
+
 }
 
 MainWindow::~MainWindow()
@@ -21,7 +22,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::getbooks()
 {
-    manager = new QNetworkAccessManager(this);
 
     connect(manager, SIGNAL(finished(QNetworkReply*)),
             this, SLOT(replyFinished(QNetworkReply*)));
@@ -47,7 +47,7 @@ void MainWindow::on_pushButton_4_clicked()
     price = ui->lineEdit_5->text();
 
     //Koppla mig till servern
-
+    manager = new QNetworkAccessManager(this);
     connect(manager, SIGNAL(finished(QNetworkReply*)),
             this, SLOT(replyFinished(QNetworkReply*)));
 
@@ -70,4 +70,40 @@ void MainWindow::on_pushButton_4_clicked()
 
 
 }
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    QString id, str1;
+    QStringList list;
+
+    id = ui->lineEdit_searchID->text();
+
+    if (id == "") {
+
+        QMessageBox::information(NULL, "Warning", "You need to enter an book ID");
+
+    } else {
+
+        manager = new QNetworkAccessManager(this);
+
+        connect(manager, SIGNAL(finished(QNetworkReply*)),
+                this, SLOT(replyFinished(QNetworkReply*)));
+
+        QString url = "http://localhost:8080/api/book?bookid=" + id;
+
+        QNetworkReply* reply = manager->get(QNetworkRequest(QUrl(url)));
+        reply->finished();
+        int statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+        qDebug() << reply->readAll();
+
+
+    }
+
+    ui->lineEdit_searchID->clear();
+}
+
+
+
+
 
