@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QMessageBox>
+#include <QStringListModel>
+
 
 #include <iostream>
 using namespace std;
@@ -10,7 +12,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->tableWidget->setColumnCount(4);
 
+    auto width = ui->tableWidget->width();
+    for (int i = 0; i < 4; i++)
+        ui->tableWidget->setColumnWidth(i,width/4.0);
+
+    QStringList labels;
+      labels << "Book ID" << "Book Title" << "Quantity" << "Price per Unit";
+    ui->tableWidget->setHorizontalHeaderLabels(labels);
 }
 
 MainWindow::~MainWindow()
@@ -74,7 +84,8 @@ void MainWindow::on_pushButton_4_clicked()
 
 void MainWindow::on_pushButton_clicked()
 {
-    QString id, str1;
+    QString id;
+    QByteArray getRequest;
     QStringList list;
 
     id = ui->lineEdit_searchID->text();
@@ -85,17 +96,45 @@ void MainWindow::on_pushButton_clicked()
 
     } else {
 
+
         manager = new QNetworkAccessManager(this);
 
-        connect(manager, SIGNAL(finished(QNetworkReply*)),
-                this, SLOT(replyFinished(QNetworkReply*)));
-
         QString url = "http://localhost:8080/api/book?bookid=" + id;
+        QNetworkRequest request= QNetworkRequest(QUrl(url));
+        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
 
-        QNetworkReply* reply = manager->get(QNetworkRequest(QUrl(url)));
-        reply->finished();
-        int statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
-        qDebug() << reply->readAll();
+        QNetworkReply* reply = manager ->get(request);
+
+        //Väntar en sekund för att hinna läsa data
+        QTime dieTime= QTime::currentTime().addMSecs(100);
+            while (QTime::currentTime() < dieTime)
+                QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+
+         connect(manager, SIGNAL(finished(QNetworkReply*)),
+                    this, SLOT(replyFinished(QNetworkReply*)));
+
+
+        //Omvandlar from QByteArray till QString
+        getRequest = reply->readAll();
+        QString getRequestStr(QString::fromLatin1(getRequest));
+        getRequestStr.replace("(","");
+        getRequestStr.replace(")","");
+        getRequestStr.replace("'","");
+        getRequestStr.replace(" ","");
+
+        //Dela upp QString
+        list = getRequestStr.split(",");
+        QString id = list.at(0);
+        QString title = list.at(1);
+        QString qty = list.at(2);
+        QString price = list.at(3);
+
+        ui->tableWidget->setRowCount(150);
+        ui->tableWidget->setItem(0, 0, new QTableWidgetItem(id));
+        ui->tableWidget->setItem(0, 1, new QTableWidgetItem(title));
+        ui->tableWidget->setItem(0, 2, new QTableWidgetItem(qty));
+        ui->tableWidget->setItem(0, 3, new QTableWidgetItem(price));
+
 
 
     }

@@ -114,23 +114,13 @@
        <attribute name="title">
         <string>Handle Inventory</string>
        </attribute>
-       <widget class="QTableWidget" name="tableWidget">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>120</y>
-          <width>471</width>
-          <height>141</height>
-         </rect>
-        </property>
-       </widget>
        <widget class="QSplitter" name="splitter_7">
         <property name="geometry">
          <rect>
           <x>390</x>
           <y>270</y>
-          <width>111</width>
-          <height>51</height>
+          <width>132</width>
+          <height>64</height>
          </rect>
         </property>
         <property name="orientation">
@@ -147,10 +137,10 @@
          </property>
         </widget>
        </widget>
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
-          <x>360</x>
+          <x>380</x>
           <y>30</y>
           <width>137</width>
           <height>82</height>
@@ -170,11 +160,21 @@
          <item>
           <widget class="QPushButton" name="pushButton">
            <property name="text">
-            <string>Display Books</string>
+            <string>Display Book</string>
            </property>
           </widget>
          </item>
         </layout>
+       </widget>
+       <widget class="QTableWidget" name="tableWidget">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>130</y>
+          <width>511</width>
+          <height>141</height>
+         </rect>
+        </property>
        </widget>
       </widget>
      </widget>
