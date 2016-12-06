@@ -10,6 +10,7 @@
     
     @author: Henrik
     '''
+
 import cherrypy
 import pymysql
 
@@ -22,11 +23,12 @@ class Book:
     
     exposed = True
     
-    def GET(self, bookid):
+    def GET():
         conn1 = pymysql.connect(host='localhost', port=3306, user='root', passwd='admin', db='mydb', autocommit=True)
         cur = conn1.cursor()
-        cur.execute("SELECT * FROM book where id=%s", (bookid,))
+        cur.execute("SELECT * FROM book")
     
+                    # where id=%s", (bookid,)
         name = cur.fetchone()
         return str(name)
     
@@ -45,7 +47,9 @@ class Book:
 
 # return ('The book: %s The user: %s' % (dbquery1, dbquery2))
 
-
-
-
-
+                    
+                    
+                    
+                    
+                    
+                
