@@ -12,6 +12,28 @@ class StringGenerator(object):
 
 <head>
 <title>Bookishelf</title>
+<style>
+input[type=text] {
+    width: 100%;
+	height: 45px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+select {
+    border: 0 none;
+    color: #4A235A;
+    background: #FBEEE6;
+    font-size: 24px;
+    font-family: Consolas;
+    font-weight: bold;
+    padding: 2px 10px;
+    width: 150px;
+	height: 45px;
+}
+
+</style>
 </head>
 
 <body background="http://wallpaperus.org/wallpapers/03/122/books-1920x1080-wallpaper-1711426.jpg" text=#D6EAF8>
