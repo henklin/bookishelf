@@ -27,8 +27,12 @@ CREATE TABLE `book` (
   `title` varchar(45) DEFAULT NULL,
   `qty` int(11) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
+  `nrSold` int(11) DEFAULT NULL,
+  `image` varchar(90) DEFAULT NULL,
+  `category` varchar(45) DEFAULT NULL,
+  `description` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,36 +41,8 @@ CREATE TABLE `book` (
 
 LOCK TABLES `book` WRITE;
 /*!40000 ALTER TABLE `book` DISABLE KEYS */;
-INSERT INTO `book` VALUES (1,'Harry Potter',11,150),(2,'The bible',15,100);
+INSERT INTO `book` VALUES (1,'Harry Potter',15,200,0,'http://prodimage.images-bn.com/pimages/9781338099133_p0_v5_s1200x630.jpg','fantasy','This is Harry Potter');
 /*!40000 ALTER TABLE `book` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `user`
---
-
-DROP TABLE IF EXISTS `user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `user` (
-  `username` varchar(18) NOT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `password` varchar(32) NOT NULL,
-  `userid` int(11) NOT NULL AUTO_INCREMENT,
-  `credit` int(11) DEFAULT NULL,
-  PRIMARY KEY (`userid`),
-  UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `user`
---
-
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('test','test@test.com','password',1,4250);
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -78,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-23 11:53:39
+-- Dump completed on 2016-12-01 10:36:35

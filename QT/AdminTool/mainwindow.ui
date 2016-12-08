@@ -18,7 +18,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
@@ -92,7 +92,7 @@
           </property>
          </widget>
         </widget>
-        <widget class="QWidget" name="">
+        <widget class="QWidget" name="layoutWidget">
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
            <widget class="QLineEdit" name="lineEdit_2"/>
@@ -114,47 +114,13 @@
        <attribute name="title">
         <string>Handle Inventory</string>
        </attribute>
-       <widget class="QSplitter" name="splitter">
-        <property name="geometry">
-         <rect>
-          <x>250</x>
-          <y>10</y>
-          <width>251</width>
-          <height>69</height>
-         </rect>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <widget class="QLabel" name="label">
-         <property name="text">
-          <string>Search for products</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="lineEdit"/>
-        <widget class="QPushButton" name="pushButton">
-         <property name="text">
-          <string>Search</string>
-         </property>
-        </widget>
-       </widget>
-       <widget class="QTableWidget" name="tableWidget">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>100</y>
-          <width>471</width>
-          <height>161</height>
-         </rect>
-        </property>
-       </widget>
        <widget class="QSplitter" name="splitter_7">
         <property name="geometry">
          <rect>
           <x>390</x>
           <y>270</y>
-          <width>111</width>
-          <height>51</height>
+          <width>132</width>
+          <height>64</height>
          </rect>
         </property>
         <property name="orientation">
@@ -170,6 +136,58 @@
           <string>Remove</string>
          </property>
         </widget>
+       </widget>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>380</x>
+          <y>30</y>
+          <width>137</width>
+          <height>82</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Search with book ID</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_searchID"/>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton">
+           <property name="text">
+            <string>Display Book</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QTableWidget" name="tableWidget">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>130</y>
+          <width>511</width>
+          <height>141</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_5">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>90</y>
+          <width>113</width>
+          <height>32</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Display All</string>
+        </property>
        </widget>
       </widget>
      </widget>

@@ -1,5 +1,8 @@
 #include "mainwindow.h"
+#include <QMessageBox>
 #include <QApplication>
+#include <QPluginLoader>
+
 
 int main(int argc, char *argv[])
 {
