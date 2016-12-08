@@ -13,6 +13,7 @@ from book import Book
 from index import Index
 from login import Login
 from bookPage import BookPage
+from shoppingCart import ShoppingCart
 
 ##conn = sqlite3.connect('C:/Users/Henrik/test.db')
 ##c=conn.cursor()
@@ -63,6 +64,13 @@ if __name__ == '__main__':
     
     cherrypy.tree.mount(
         BookPage(), '/api/bookPage',
+        {'/':
+            {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
+        }
+    )
+    
+    cherrypy.tree.mount(
+        ShoppingCart(), '/api/shoppingCart',
         {'/':
             {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
         }

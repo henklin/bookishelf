@@ -22,6 +22,18 @@ class BookPage:
         
         bookImage = cur.fetchone()
         
+        cur.execute("SELECT price FROM book WHERE id=%s" % bookid)
+        
+        bookPrice = cur.fetchone()
+        
+        cur.execute("SELECT title FROM book WHERE id=%s" % bookid)
+        
+        bookTitle = cur.fetchone()
+        
+        cur.execute("SELECT description FROM book WHERE id=%s" % bookid)
+        
+        bookDesc = cur.fetchone()
+        
         cur.close()
         
         
@@ -31,7 +43,7 @@ class BookPage:
         return("""<html>
 
 <head>
-<title>Book Review</title>
+<title>Book page</title>
 </head>
 
     <div align="left">
@@ -40,15 +52,19 @@ class BookPage:
     </a>
 
     <div align="right">
-    <a href="Cart.jsp">
+    <form action="http://127.0.0.1:8080/api/shoppingCart" method="get">
+    <button>
+    <input type="hidden" name="userid" value="1">
     Shopping Cart<br><img src="https://www.iconexperience.com/_img/g_collection_png/standard/512x512/shopping_cart.png" alt="Shopping Cart" height="150" width="150">
-    </a></div>
+    </button>
+    </form>
+    </div>
     
 
 <body background="http://wallpaperus.org/wallpapers/03/122/books-1920x1080-wallpaper-1711426.jpg" text=#D6EAF8>
 
 
-<h1 align="center"><font face="Century Gothic" color="#EBF5FB">BOOK REVIEW</font></h1>
+<h1 align="center"><font face="Century Gothic" color="#EBF5FB">%s</font></h1>
 <font size=5 face="Consolas" color="#EBF5FB">
 <hr width=30>
 
@@ -56,12 +72,9 @@ class BookPage:
 <tr>
 <td><img height="500" width="400" src="%s" alt="book1"></td>
 <td>
-<font color="#EBF5FB" size=5 face="Source Sans Pro">Details<br><br>How to be Popular<br>
-<font size=3>Author-Meg Cabot</font><br>
-Original Price-$30/-<br>
-Price-$27/-<br>
-You save-10<br>
-Rating-3/5<br>
+<font color="#EBF5FB" size=5 face="Source Sans Pro">Details<br><br>%s<br>
+<font size=3>Author-TBA</font><br>
+Price-%s kr<br>
 </font><br>
 <form action="credit.html">
 <input type="submit" value="Add to Cart" name="cart">
@@ -77,7 +90,7 @@ Rating-3/5<br>
 </body>
 
 
-        </html>""" % (bookImage[0]))
+        </html>""" % (bookTitle[0], bookImage[0], bookDesc[0], bookPrice[0]))
 
     
   
