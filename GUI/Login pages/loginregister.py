@@ -1,23 +1,18 @@
-'''
-Created on 5 dec. 2016
-
-@author: Abigail
-'''
-
 import os, os.path
+import random
 import string
 
 import cherrypy
-import pymysql
 
 
-class UserLoginPage:
+class RegisterPage:
 
     exposed = True
     
     def GET(self):
         return ("""
 <!DOCTYPE html>
+<html>
 
 <head>
 <title>Bookishelf</title>
@@ -26,30 +21,46 @@ class UserLoginPage:
 <body background="http://wallpaperus.org/wallpapers/03/122/books-1920x1080-wallpaper-1711426.jpg" text=#D6EAF8>
 
 	
-	<a href="http//localhost:8080/api/bookishelf">
+	<a href="Homepage.html">
 	<img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">
 	</a>
 
 	<h1>
 	<font face="Century Gothic" color="#FCF3CF">
-	&nbsp LOGIN TO ENTER THE FUTURE
+	&nbsp ENTER THE FUTURE
 	</font>
 	</h1>
 	<font size=5 face="Consolas" color="#FADBD8">
 	<hr width=50% align="left">
 	<br><br><br>
 
-	<font color="#EBF5FB"><p align="center">Enter your details to Login</font>
+	<font color="#EBF5FB"><p align="center">Enter your details to Register</font>
 
-	<form action="http://localhost:8080/api/loginresult" method="get">
+	<form action="api/exmp1" method="get">
 	<table align="center">
 
 	<tr><td>
-	User-ID:</td><td align="left"><input type="text" name="uname" maxlength="32" size="16">
+	First Name:</td><td align="left"><input type="text" name="firstname" maxlength="32" size="16">
 	</td></tr>
 
 	<tr><td>
-	Password:</td><td align="left"><input type="text" name="pswd" maxlength="32" size="16">
+	Last Name:</td><td align="left"><input type="text" name="lastname" maxlength="32" size="16">
+	</td></tr>
+
+	<tr><td>
+	E-mail ID:</td><td align="left"><input type="text" name="email" maxlength="32" size="16">
+	</td></tr>
+
+	<tr><td>
+	User-name:</td><td align="left"><input type="text" name="user" maxlength="32" size="16">
+	</td></tr>
+
+	<tr><td>
+	Password:</td><td align="left"><input type="text" name="password" maxlength="32" size="16">
+	</td></tr>
+
+	<tr><td>
+	Re-type Password:</td><td align="left"><input type="repassword" name="pswd">
 	</td></tr>
 
 	<tr><td align="center"><input type="submit" value="Login"></td></tr>
@@ -59,10 +70,6 @@ class UserLoginPage:
 	</form>
 
 	<br><br>
-	<p align="center"><font face="Century Gothic" color="#2E86C1">
-	Not a member yet?
-	</font>
-	<a href=http://localhost:8080/api/loginregister><font color="#EBF5FB">Sign Up</font></a>
 
 	</font>
 </body>
@@ -71,4 +78,6 @@ class UserLoginPage:
 <hr align="center" width="50%">
 <p align="center">&copy2016&nbsp Bookishelf.com
 </font>
-        </html>""");
+        </html>""" )
+
+

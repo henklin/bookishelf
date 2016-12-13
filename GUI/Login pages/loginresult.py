@@ -18,19 +18,19 @@ class LoginResultPage:
 
         cur = conn1.cursor()
 
-        cur.execute("SELECT userfullname FROM logininfo WHERE username=%s", (uname,))
+        cur.execute("SELECT userfullname FROM logininfo WHERE username=%s", uname)
 
         usname=cur.fetchone()
 
-        cur.execute("SELECT userpassword FROM logininfo WHERE username=%s", (uname,))
+        cur.execute("SELECT userpassword FROM logininfo WHERE username=%s", uname)
 
         temppassword=cur.fetchone()
 
-        cur.execute("SELECT userimage FROM logininfo WHERE username=%s", (uname,))
+        cur.execute("SELECT userimage FROM logininfo WHERE username=%s", uname)
 		
         image=cur.fetchone()
 		
-        if(temppassword==pswd):
+        if(temppassword[0]==pswd):
 
          return ("""
         <!DOCTYPE html>
@@ -50,11 +50,11 @@ class LoginResultPage:
 	</font>
 	</h1>
 	<font size="16" face="Consolas" color="#2E86C1">
-	<hr width=50% align="left">
+	<hr width=50px align="left">
 
 	<font color="#EBF5FB" size="20"><p align="center">Start by searching your Favorite Book</font>
 
-	<form action="api/search" method="get">
+	<form action="http://localhost:8080/api/search" method="get">
 	<table align="center">
 
 	<tr><td>
@@ -109,13 +109,13 @@ class LoginResultPage:
 	<p align="center"><font face="Century Gothic" color="#FADBD8">
 	Not a member yet?
 	</font>
-	<a href=Register.html><font color="#EBF5FB">Sign Up</font></a>
+	<a href=http://localhost:8080/api/loginregister><font color="#EBF5FB">Sign Up</font></a>
 
 	</font>
 </body>
 <br><br><br>
 <font face="Century Gothic" color="#1A5276">
-<hr align="center" width="50%">
+<hr align="center" width="50px">
 <p align="center">&copy2016&nbsp Bookishelf.com
 </font>
 
@@ -123,7 +123,7 @@ class LoginResultPage:
         
         elif(temppassword!=pswd):
 
-          return ("""<html>
+         return("""<html>
 
 <head>
 <title>Bookishelf</title>
@@ -141,7 +141,7 @@ class LoginResultPage:
 	</h1>
 
 	<font size="12" face="Consolas" color="#2E86C1">
-	<hr width=50% align="left">
+	<hr width=500px align="left">
 
 	
 	<font color="#EBF5FB"><p align="center">Retry to Login</font>
@@ -165,7 +165,7 @@ class LoginResultPage:
 
 	<font color="#EBF5FB" size="12"><p align="center">Search the Book you are looking for</font>
 
-	<form action="api/search" method="get">
+	<form action="http://localhost:8080/api/search" method="get">
 	<table align="center">
 
 	<tr>
@@ -198,92 +198,15 @@ class LoginResultPage:
 	<p align="center"><font face="Century Gothic" color="#FADBD8">
 	Not a member yet?
 	</font>
-	<a href=api/Register><font color="#EBF5FB">Sign Up</font></a>
+	<a href=http://localhost:8080/api/loginregister><font color="#EBF5FB">Sign Up</font></a>
 
 	</font>
 </body>
 <br><br><br>
 <font face="Century Gothic" color="#1A5276">
-<hr align="center" width="50%">
+<hr align="center" width="500px">
 <p align="center">&copy2016&nbsp Bookishelf.com
 </font>
 
         </html>""" )
 	   
-	   
-        else:
-        
-          return ("""<html>
-
-
-<head>
-<title>Bookishelf</title>
-</head>
-
-<body background="http://wallpaperus.org/wallpapers/03/122/books-1920x1080-wallpaper-1711426.jpg" text=#D6EAF8>
-	
-	
-	<img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">
-
-	<h1>
-	<font face="Century Gothic" color="#FCF3CF">
-	&nbsp Sorry! The username %s is not registered on the website
-	</font>
-	</h1>
-
-	
-	<font size="20" face="Consolas" color="#2E86C1">
-	<hr width=50% align="left">
-
-	<p align="center"><font face="Century Gothic" color="#FADBD8" size=20>
-	You can 
-	<a href=api/Register><font color="#EBF5FB" size=20>Sign Up</font></a>
-	to register on the site!
-	</font>
-
-	
-	<font color="#EBF5FB" size="20"><p align="center">Search for Books you are loooking for</font>
-
-	<form action="api/search" method="get">
-
-
-	<table align="center">
-
-	<tr>
-	<td>
-	<font size="20">
-	Search:
-	</font>
-	</td>
-	<td align="left"><input type="text" name="user" maxlength="32" size="16">
-	</td><td>
-
-	<select name="Genre">
-	  <option value="Fiction">Fiction</option>
-	  <option value="Horror">Horror</option>
-	  <option value="Thriller">Thriller</option>
-	  <option value="Romance">Romance</option>
-	</select>
-	</td>
-
-	<td><input type="submit" value="Search"></td></tr>
-
-	</table>
-
-	</form>
-
-</font>
-</form>
-
-	<br><br>
-
-	</font>
-</body>
-<br><br><br>
-<font face="Century Gothic" color="#1A5276">
-<hr align="center" width="50%">
-<p align="center">&copy2016&nbsp Bookishelf.com
-</font>
-
-        </html>""" )
-   
