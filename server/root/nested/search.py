@@ -18,15 +18,23 @@ class SearchResult:
     
     def GET(self, title, Genre):
         
-        conn1 = pymysql.connect(host='localhost', port=3306, user='root', passwd='Hajimemashite*25', db='mydb', autocommit=True)
+        conn1 = pymysql.connect(host='localhost', port=3306, user='root', passwd='admin', db='mydb', autocommit=True)
 
         cur = conn1.cursor()
 		
         tempQuery = Template("SELECT image FROM book WHERE title LIKE '%${search}%'")
         tempTitle = title
         cur.execute(tempQuery.render(search=tempTitle))
+        
 
         bookImage = cur.fetchall()
+        
+        
+        tempQuery = Template("SELECT id FROM book WHERE title LIKE '%${search}%'")
+        tempTitle = title
+        cur.execute(tempQuery.render(search=tempTitle))
+        bookIds = cur.fetchall()
+        
         
         returnString = ""
         i = 0
@@ -35,9 +43,19 @@ class SearchResult:
             tempStr1 = str(tempStr0).replace(")", "")
             tempStr2 = str(tempStr1).replace("'", "")
             tempStr3 = str(tempStr2).replace(",", "")
+            
+            temp0 = str(bookIds[i]).replace("(", "")
+            temp1 = str(temp0).replace(")", "")
+            temp2 = str(temp1).replace("'", "")
+            temp3 = str(temp2).replace(",", "")
+            
             tempHTML = Template("""<img src="${image}" alt="harry poter" style="width:100px;height:150px;">
             """)
-            returnString += tempHTML.render(image=tempStr3)
+            
+            
+            HTMLtemp = Template("""<a href="http://127.0.0.1:8080/api/bookPage?bookid=${id}">
+             ${imagelink}</a>""")
+            returnString += HTMLtemp.render(id=temp3, imagelink=tempHTML.render(image=tempStr3))
         cur.close()
                    
         
@@ -60,7 +78,7 @@ class SearchResult:
 	<table align="center">
 
 	<tr><td>
-	Search for another book:</td><td align="left"><input type="text" name="user" maxlength="32" size="16">
+	Search for another book:</td><td align="left"><input type="text" name="title" maxlength="32" size="16">
 	</td><td>
 	<select name="Genre">
 	  <option value="Fiction">Fiction</option>
@@ -81,7 +99,7 @@ class SearchResult:
 <th colspan=5 align="center">Search Results</th>
 <tr></tr></tr>
 <tr>
-<a href="api/bookishelf">
+<a href="http://127.0.0.1:8080/api/bookPage?bookid=2">
 %s
 </a></tr>
 

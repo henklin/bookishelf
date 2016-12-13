@@ -14,6 +14,9 @@ from index import Index
 from login import Login
 from bookPage import BookPage
 from shoppingCart import ShoppingCart
+from search import SearchResult
+from loginpage import UserLogin
+from loginresult import LoginResult
 
 ##conn = sqlite3.connect('C:/Users/Henrik/test.db')
 ##c=conn.cursor()
@@ -56,7 +59,14 @@ if __name__ == '__main__':
     
     
     cherrypy.tree.mount(
-        Login(), '/api/login',
+        UserLogin(), '/api/login',
+        {'/':
+            {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
+        }
+    )
+    
+    cherrypy.tree.mount(
+        LoginResult(), '/api/loginresult',
         {'/':
             {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
         }
@@ -75,6 +85,14 @@ if __name__ == '__main__':
             {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
         }
     )
+    
+    cherrypy.tree.mount(
+        SearchResult(), '/api/search',
+        {'/':
+            {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
+        }
+    )
+
 
     cherrypy.engine.start()
     cherrypy.engine.block()

@@ -5,6 +5,7 @@ Created on 18 nov. 2016
 '''
 import cherrypy
 import pymysql
+from mako.template import Template
 
 ##conn = sqlite3.connect('C:/Users/Henrik/test.db')
 ##c=conn.cursor()
@@ -14,6 +15,28 @@ class Checkout:
   
 
     exposed = True
+    
+    def StringGen(self, userid):
+        
+        conn1 = pymysql.connect(host='localhost', port=3306, user='root', passwd='admin', db='mydb', autocommit=True)
+
+        cur = conn1.cursor()
+        
+        cur.execute("SELECT image from shoppingCart INNER JOIN book on book.id=shoppingCart.bookid INNER JOIN user on user.userid=shoppingCart.userid where shoppingCart.userid=%s" % userid)
+        shoppingCart = cur.fetchall()
+        cur.close()
+        returnString = ""
+        i = 0
+        for i in range(0, len(shoppingCart)):
+            tempStr0 = str(shoppingCart[i]).replace("(", "")
+            tempStr1 = str(tempStr0).replace(")", "")
+            tempStr2 = str(tempStr1).replace("'", "")
+            tempStr3 = str(tempStr2).replace(",", "")
+            tempHTML = Template("""<img src="${image}" style="width:100px;height:150px;">
+            """)
+            returnString += tempHTML.render(image=tempStr3)
+            
+        return returnString
     
     def GET(self, bookid, userid):
         
@@ -92,12 +115,10 @@ Check Out
             totalPrice+=int(priceStr3)
             
         shoppingCartPrice = cur.fetchall()
-        totalPrice = 0
             
         cur.execute("SELECT book.id from shoppingCart INNER JOIN book on book.id=shoppingCart.bookid INNER JOIN user on user.userid=shoppingCart.userid where shoppingCart.userid=%s" % userid)
 
         bookIds = cur.fetchall()
-        totalPrice = 0
         bookIdsOk = [None] * len(bookIds)
         i = 0
         for i in range(0,len(bookIds)):
@@ -135,7 +156,7 @@ Check Out
         
         newcredit = (usercreditint - totalPrice)
         
-        
+        finalString = Checkout.StringGen(self, 1)
         if(totalPrice > usercreditint):
             return('Not enough credit')
         else:
@@ -147,8 +168,46 @@ Check Out
             cur.execute("DELETE FROM shoppingCart where userid=%s" % userid)
             
         #cur.commit()
+        
+        
+        
         cur.close
-        return ('Succes! You have bought %(s)')
+        return ("""
+        <!DOCTYPE html>
+<html>
+<head>
+<title>Buy Book</title>
+</head>
+<body background ="http://www.mikelavere.com/wp-content/uploads/2015/03/self-improvement-books.jpg"  text=#0099cc>
+<br><br><br>
+<h2>
+<div align= "center" >
+You have placed your order, thank you!
+</div>
+</h2>
+<div  style="height: 50; width: 300px;"> </div>
+<div align="center">
+%s
+</div>
+<br><br>
+<div align="center">
+<p><b>Order value: %s kr</b></p><br><br>
+</div>
+<br><br>
+
+<table align="center">
+<tr><td>
+<form method="get" action="http://127.0.0.1:8080/api/">
+<input type="submit" value="Continue shopping">
+</form>
+</td>
+</tr>
+</table>
+
+</div>
+
+</body>
+</html> """ % (finalString, totalPrice))
         
         
         
