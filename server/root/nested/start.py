@@ -20,6 +20,7 @@ from search import SearchResult
 from loginpage import UserLogin
 from loginresult import LoginResult
 from allBooks import AllBooks
+from tickets import Tickets
 
 ##conn = sqlite3.connect('C:/Users/Henrik/test.db')
 ##c=conn.cursor()
@@ -102,7 +103,14 @@ if __name__ == '__main__':
             {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
         }
     )
-                        
+
+    cherrypy.tree.mount(
+        Tickets(), '/api/tickets',
+        {'/':
+            {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
+        }
+    )
+    
                         
     cherrypy.engine.start()
     cherrypy.engine.block()
