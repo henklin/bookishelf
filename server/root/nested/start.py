@@ -17,6 +17,7 @@ from shoppingCart import ShoppingCart
 from search import SearchResult
 from loginpage import UserLogin
 from loginresult import LoginResult
+from addShoppingCart import AddShoppingCart
 
 ##conn = sqlite3.connect('C:/Users/Henrik/test.db')
 ##c=conn.cursor()
@@ -81,6 +82,14 @@ if __name__ == '__main__':
     
     cherrypy.tree.mount(
         ShoppingCart(), '/api/shoppingCart',
+        {'/':
+            {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
+        }
+    )
+    
+    
+    cherrypy.tree.mount(
+        AddShoppingCart(), '/api/addshoppingCart',
         {'/':
             {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
         }

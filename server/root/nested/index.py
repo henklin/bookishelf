@@ -86,7 +86,7 @@ class Index:
     <img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="100" width="300">
     </td>
     <td width="1000" align="right">
-    <h2><a href="Login.html"><font size=30 face="Consolas" color="#EBF5FB">Login</font></a></h2>
+    <h2><a href="http://127.0.0.1:8080/api/login"><font size=30 face="Consolas" color="#EBF5FB">Login</font></a></h2>
     </td></tr>
     </table>
 
@@ -332,7 +332,7 @@ class Index:
     </table>
 
     <div align="right">
-    <form action="http://127.0.0.1:8080/api/shoppingCart" method="get">
+    <form action="http://127.0.0.1:8080/api/shoppingCart" method="post">
     <button>
     <input type="hidden" name="userid" value="%s">
     Shopping Cart<br><img src="https://www.iconexperience.com/_img/g_collection_png/standard/512x512/shopping_cart.png" alt="Shopping Cart" height="150" width="150">
@@ -373,36 +373,41 @@ class Index:
 <th colspan=5 align="center">Trending Books</th>
 <tr></tr></tr>
 <tr>
-<td><form method="get" action="http://127.0.0.1:8080/api/bookPage">
+<td><form method="post" action="http://127.0.0.1:8080/api/bookPage">
 <input type="hidden" name="bookid" value="%s">
+<input type="hidden" name="userid" value="%s">
 <button>
 <img height="300" width="200" src="%s" alt="book1">
 </button>
 </form></td>
 
-<td><form method="get" action="http://127.0.0.1:8080/api/bookPage">
+<td><form method="post" action="http://127.0.0.1:8080/api/bookPage">
 <input type="hidden" name="bookid" value="%s">
+<input type="hidden" name="userid" value="%s">
 <button>
 <img height="300" width="200" src="%s" alt="book1">
 </button>
 </form></td>
 
-<td><form method="get" action="http://127.0.0.1:8080/api/bookPage">
+<td><form method="post" action="http://127.0.0.1:8080/api/bookPage">
 <input type="hidden" name="bookid" value="%s">
+<input type="hidden" name="userid" value="%s">
 <button>
 <img height="300" width="200" src="%s" alt="book1">
 </button>
 </form></td>
 
-<td><form method="get" action="http://127.0.0.1:8080/api/bookPage">
+<td><form method="post" action="http://127.0.0.1:8080/api/bookPage">
 <input type="hidden" name="bookid" value="%s">
+<input type="hidden" name="userid" value="%s">
 <button>
 <img height="300" width="200" src="%s" alt="book1">
 </button>
 </form></td>
 
-<td><form method="get" action="http://127.0.0.1:8080/api/bookPage">
+<td><form method="post" action="http://127.0.0.1:8080/api/bookPage">
 <input type="hidden" name="bookid" value="%s">
+<input type="hidden" name="userid" value="%s">
 <button>
 <img height="300" width="200" src="%s" alt="book1">
 </button>
@@ -412,52 +417,52 @@ class Index:
 
 <tr>
 
-<form method="post" action="http://127.0.0.1:8080/api/shoppingCart">
+<form method="post" action="http://127.0.0.1:8080/api/addshoppingCart">
 
 <td align="center">
 <input type="hidden" name="bookid" value=%s>
-<input type="hidden" name="userid" value=1>
+<input type="hidden" name="userid" value=%s>
 <input type="submit" value="Add to cart">
 </td>
 
 </form>
 
-<form method="post" action="http://127.0.0.1:8080/api/shoppingCart">
+<form method="post" action="http://127.0.0.1:8080/api/addshoppingCart">
 
 <td align="center">
 <input type="hidden" name="bookid" value=%s>
-<input type="hidden" name="userid" value=1>
+<input type="hidden" name="userid" value=%s>
 <input type="submit" value="Add to cart">
 </td>
 
 </form>
 
-<form method="post" action="http://127.0.0.1:8080/api/shoppingCart">
+<form method="post" action="http://127.0.0.1:8080/api/addshoppingCart">
 
 <td align="center">
 <input type="hidden" name="bookid" value=%s>
-<input type="hidden" name="userid" value=1>
+<input type="hidden" name="userid" value=%s>
 <input type="submit" value="Add to cart">
 </td>
 
 </form>
 
-<form method="post" action="http://127.0.0.1:8080/api/shoppingCart">
+<form method="post" action="http://127.0.0.1:8080/api/addshoppingCart">
 
 <td align="center">
 <input type="hidden" name="bookid" value=%s>
-<input type="hidden" name="userid" value=1>
+<input type="hidden" name="userid" value=%s>
 <input type="submit" value="Add to cart">
 </td>
 
 </form>
 
 
-<form method="post" action="http://127.0.0.1:8080/api/shoppingCart">
+<form method="post" action="http://127.0.0.1:8080/api/addshoppingCart">
 
 <td align="center">
 <input type="hidden" name="bookid" value=%s>
-<input type="hidden" name="userid" value=1>
+<input type="hidden" name="userid" value=%s>
 <input type="submit" value="Add to cart">
 </td>
 </form>
@@ -485,7 +490,7 @@ class Index:
 <p align="center">&copy2016&nbsp Bookishelf.com
 </font>
 
-        </html>""" % (username, userid, idsList[0], imageList[0], idsList[1], imageList[1], idsList[2], imageList[2], idsList[3], imageList[3], idsList[4], imageList[4], idsList[0], idsList[1], idsList[2], idsList[3], idsList[4]))
+        </html>""" % (username, userid, idsList[0], userid, imageList[0], idsList[1], userid, imageList[1], idsList[2], userid, imageList[2], idsList[3], userid, imageList[3], idsList[4], userid, imageList[4], idsList[0], userid, idsList[1], userid, idsList[2], userid, idsList[3], userid, idsList[4], userid))
     
   
         

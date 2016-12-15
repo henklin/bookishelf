@@ -64,7 +64,7 @@ class BookPage:
     </a>
 
     <div align="right">
-    <form action="http://127.0.0.1:8080/api/shoppingCart" method="get">
+    <form action="http://127.0.0.1:8080/api/shoppingCart" method="post">
     <button>
     <input type="hidden" name="userid" value="%s">
     Shopping Cart<br><img src="https://www.iconexperience.com/_img/g_collection_png/standard/512x512/shopping_cart.png" alt="Shopping Cart" height="150" width="150">
@@ -103,7 +103,7 @@ Price-%s kr<br>
 </body>
 
 
-        </html>""" % (userid, bookTitle[0], bookImage[0], bookDesc[0], bookPrice[0]), qtyString)
+        </html>""" % (userid, bookTitle[0], bookImage[0], bookDesc[0], bookPrice[0], qtyString))
 
     
     
