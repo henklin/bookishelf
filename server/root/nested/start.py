@@ -2,6 +2,8 @@
 Created on 17 nov. 2016
 
 @author: Henrik
+@author: Alejandro P. Hernandez
+
 '''
 import cherrypy
 import random
@@ -17,6 +19,7 @@ from shoppingCart import ShoppingCart
 from search import SearchResult
 from loginpage import UserLogin
 from loginresult import LoginResult
+from allBooks import AllBooks
 
 ##conn = sqlite3.connect('C:/Users/Henrik/test.db')
 ##c=conn.cursor()
@@ -92,8 +95,15 @@ if __name__ == '__main__':
             {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
         }
     )
-
-
+    
+    cherrypy.tree.mount(
+        AllBooks(), '/api/allBooks',
+        {'/':
+            {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
+        }
+    )
+                        
+                        
     cherrypy.engine.start()
     cherrypy.engine.block()
                         
