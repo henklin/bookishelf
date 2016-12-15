@@ -76,6 +76,56 @@ class Index:
 
 <head>
 <title>Bookishelf</title>
+
+<style>
+input[type=text] {
+    width: 100%;
+	height: 45px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border:1px solid #EBF5FB;
+	display:inline-block;
+
+	}
+
+select {
+    border: 0 none;
+    color: #4A235A;
+    background: #FBEEE6;
+    font-size: 24px;
+    font-family: Consolas;
+    font-weight: bold;
+    padding: 2px 10px;
+    width: 150px;
+	height: 45px;
+	border-radius:28px;
+	border:1px solid #EBF5FB;
+	display:inline-block;
+
+	}
+
+input[type=submit] {
+    width: 100%;
+	height: 45px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: 24px;
+    font-family: Consolas;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border:1px solid #EBF5FB;
+	display:inline-block;
+	
+}
+
+</style>
+
 </head>
 
 <body background="http://wallpaperus.org/wallpapers/03/122/books-1920x1080-wallpaper-1711426.jpg" text=#D6EAF8>
@@ -101,10 +151,11 @@ class Index:
     <font color="#EBF5FB" size="20"><p align="center">Start by searching your Favorite Book</font>
 
     <form action="http://localhost:8080/api/search" method="get">
-    <table align="center">
+	<table align="center" cellpadding="25">
 
-    <tr><td>
+	<tr><td>	<font color="#EBF5FB" size="20">
     Search:</td><td align="left"><input type="text" name="title" maxlength="32" size="16">
+	</font>
     </td><td>
     <select name="Genre">
       <option value="Fiction">Fiction</option>
@@ -122,9 +173,9 @@ class Index:
 
 <br>
 <font face="Century Gothic" color="#FADBD8">
-<table align="center">
+<table align="center" cellpadding="10">
 <tr>
-<th colspan=5 align="center">Trending Books</th>
+<th colspan=5 align="center"><font size=8>Trending Books</font></th>
 <tr></tr></tr>
 <tr>
 <td><form method="get" action="http://127.0.0.1:8080/api/bookPage">
