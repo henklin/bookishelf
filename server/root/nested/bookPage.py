@@ -23,6 +23,10 @@ class BookPage:
         
         bookImage = cur.fetchone()
         
+        cur.execute("SELECT qty FROM book WHERE id=%s" % bookid)
+        
+        bookQty = cur.fetchone()
+        
         cur.execute("SELECT price FROM book WHERE id=%s" % bookid)
         
         bookPrice = cur.fetchone()
@@ -36,6 +40,13 @@ class BookPage:
         bookDesc = cur.fetchone()
         
         cur.close()
+        
+        qtyString = ''
+        
+        if(int(bookQty[0]) > 0):
+            qtyString = 'In stock'
+        else:
+            qtyString = 'Out of stock'    
         
         
         
@@ -76,6 +87,7 @@ class BookPage:
 <font color="#EBF5FB" size=5 face="Source Sans Pro">Details<br><br>%s<br>
 <font size=3>Author-TBA</font><br>
 Price-%s kr<br>
+%s<br>
 </font><br>
 <form action="credit.html">
 <input type="submit" value="Add to Cart" name="cart">
@@ -91,7 +103,7 @@ Price-%s kr<br>
 </body>
 
 
-        </html>""" % (userid, bookTitle[0], bookImage[0], bookDesc[0], bookPrice[0]))
+        </html>""" % (userid, bookTitle[0], bookImage[0], bookDesc[0], bookPrice[0]), qtyString)
 
     
     
@@ -110,6 +122,10 @@ Price-%s kr<br>
         
         bookPrice = cur.fetchone()
         
+        cur.execute("SELECT qty FROM book WHERE id=%s" % bookid)
+        
+        bookQty = cur.fetchone()
+        
         cur.execute("SELECT title FROM book WHERE id=%s" % bookid)
         
         bookTitle = cur.fetchone()
@@ -122,7 +138,10 @@ Price-%s kr<br>
         
         
         
-        
+        if(int(bookQty[0]) > 0):
+            qtyString = 'In stock'
+        else:
+            qtyString = 'Out of stock' 
         
         return("""<html>
 
@@ -159,6 +178,7 @@ Price-%s kr<br>
 <font color="#EBF5FB" size=5 face="Source Sans Pro">Details<br><br>%s<br>
 <font size=3>Author-TBA</font><br>
 Price-%s kr<br>
+%s<br>
 </font><br>
 <form action="credit.html">
 <input type="submit" value="Add to Cart" name="cart">
@@ -174,7 +194,7 @@ Price-%s kr<br>
 </body>
 
 
-        </html>""" % (bookTitle[0], bookImage[0], bookDesc[0], bookPrice[0]))
+        </html>""" % (bookTitle[0], bookImage[0], bookDesc[0], bookPrice[0], qtyString))
 
     
   

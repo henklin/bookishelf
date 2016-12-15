@@ -279,7 +279,15 @@ class Index:
         
         cur.execute("SELECT username FROM user WHERE userid=%s" % userid)
         
-        username = cur.fetchone()
+        usernameUnparsed = cur.fetchone()
+        
+        
+        Str0 = str(usernameUnparsed[0]).replace("(", "")
+        Str1 = str(Str0).replace(")", "")
+        Str2 = str(Str1).replace("'", "")
+        username = str(Str2).replace(",", "")
+        
+        
         
         
         
@@ -315,7 +323,11 @@ class Index:
     <img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="100" width="300">
     </td>
     <td width="1000" align="right">
-    <h2><a href="Login.html"><font size=30 face="Consolas" color="#EBF5FB">Login</font></a></h2>
+    <h1>
+    <font face="Century Gothic" color="#FCF3CF">
+    &nbsp LOGGED IN AS: %s
+    </font>
+    </h1>
     </td></tr>
     </table>
 
@@ -329,11 +341,6 @@ class Index:
     </div>
 
 
-    <h1>
-    <font face="Century Gothic" color="#FCF3CF">
-    &nbsp LOGGED IN AS: %s
-    </font>
-    </h1>
     <font size="16" face="Consolas" color="#2E86C1">
     <hr width=50 align="left">
 
@@ -478,7 +485,7 @@ class Index:
 <p align="center">&copy2016&nbsp Bookishelf.com
 </font>
 
-        </html>""" % (userid, username, idsList[0], imageList[0], idsList[1], imageList[1], idsList[2], imageList[2], idsList[3], imageList[3], idsList[4], imageList[4], idsList[0], idsList[1], idsList[2], idsList[3], idsList[4]))
+        </html>""" % (username, userid, idsList[0], imageList[0], idsList[1], imageList[1], idsList[2], imageList[2], idsList[3], imageList[3], idsList[4], imageList[4], idsList[0], idsList[1], idsList[2], idsList[3], idsList[4]))
     
   
         
