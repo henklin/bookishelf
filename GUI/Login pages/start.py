@@ -12,8 +12,10 @@ import pymysql
 from loginpage import UserLoginPage
 from loginresult import LoginResultPage
 from loginregister import RegisterPage
+from registered import Registeration
 from search import SearchResult
 from bookihomepage import HomePage
+from logoutpage import Logout
 
 
 if __name__ == '__main__':
@@ -50,6 +52,13 @@ if __name__ == '__main__':
     )
 
     cherrypy.tree.mount(
+        Registeration(), '/api/registered',
+        {'/':
+            {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
+        }
+    )
+
+    cherrypy.tree.mount(
         SearchResult(), '/api/search',
         {'/':
             {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
@@ -58,6 +67,13 @@ if __name__ == '__main__':
 
     cherrypy.tree.mount(
         HomePage(), '/api/bookihomepage',
+        {'/':
+            {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
+        }
+    )
+
+    cherrypy.tree.mount(
+        Logout(), '/api/logoutpage',
         {'/':
             {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
         }
