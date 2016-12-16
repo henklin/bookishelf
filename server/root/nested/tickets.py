@@ -30,7 +30,7 @@ class Tickets:
         return str(name)
     
     
-    def PUT(self, bookid, change):
+    def PUT(self, bookid, change, status):
         
         conn1 =pymysql.connect(host='localhost', port=3306, user='root', passwd='admin', db='mydb', autocommit=True)
         cur = conn1.cursor()
@@ -46,6 +46,7 @@ class Tickets:
 
 
         cur.execute("""UPDATE ticket SET answer = %s WHERE id = %s """, (wholeChange, bookid))
+        cur.execute("""UPDATE ticket SET open = %s WHERE id = %s """, (status, bookid))
 
         cur.close
         return str('Success!')
