@@ -229,7 +229,7 @@ class Index:
     <p align="center"><font face="Century Gothic" color="#FADBD8">
     Not a member yet?
     </font>
-    <a href=Register.html><font color="#EBF5FB">Sign Up</font></a>
+    <a href=http://127.0.0.1:8080/api/register><font color="#EBF5FB">Sign Up</font></a>
 
     </font>
 </body>
@@ -480,7 +480,7 @@ class Index:
     <p align="center"><font face="Century Gothic" color="#FADBD8">
     Not a member yet?
     </font>
-    <a href=Register.html><font color="#EBF5FB">Sign Up</font></a>
+    <a href=http://127.0.0.1:8080/api/register><font color="#EBF5FB">Sign Up</font></a>
 
     </font>
 </body>

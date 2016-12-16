@@ -21,7 +21,8 @@ from loginpage import UserLogin
 from loginresult import LoginResult
 from addShoppingCart import AddShoppingCart
 from allBooks import AllBooks
-
+from loginregister import RegisterPage
+from registered import Register
 ##conn = sqlite3.connect('C:/Users/Henrik/test.db')
 ##c=conn.cursor()
 
@@ -68,6 +69,24 @@ if __name__ == '__main__':
             {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
         }
     )
+    
+    
+    cherrypy.tree.mount(
+        RegisterPage(), '/api/register',
+        {'/':
+            {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
+        }
+    )
+    
+    
+    cherrypy.tree.mount(
+        Register(), '/api/registersend',
+        {'/':
+            {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
+        }
+    )
+    
+    
     
     cherrypy.tree.mount(
         LoginResult(), '/api/loginresult',
