@@ -16,6 +16,8 @@ from registered import Registeration
 from search import SearchResult
 from bookihomepage import HomePage
 from logoutpage import Logout
+from ticket import TicketPage
+from ticketanswer import TicketAnswerPage
 
 
 if __name__ == '__main__':
@@ -79,6 +81,20 @@ if __name__ == '__main__':
         }
     )
     
+    cherrypy.tree.mount(
+        TicketPage(), '/api/ticket',
+        {'/':
+            {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
+        }
+    )
+
+    cherrypy.tree.mount(
+        TicketAnswerPage(), '/api/ticketanswer',
+        {'/':
+            {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
+        }
+    )
+
     
     cherrypy.engine.start()
     cherrypy.engine.block()
