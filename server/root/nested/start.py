@@ -15,6 +15,7 @@ from book import Book
 from index import Index
 from login import Login
 from bookPage import BookPage
+from ticket import TicketPage
 from shoppingCart import ShoppingCart
 from search import SearchResult
 from loginpage import UserLogin
@@ -97,6 +98,15 @@ if __name__ == '__main__':
             {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
         }
     )
+    
+    
+    cherrypy.tree.mount(
+        TicketPage(), '/api/ticket',
+        {'/':
+            {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
+        }
+    )
+    
     
     cherrypy.tree.mount(
         BookPage(), '/api/bookPage',

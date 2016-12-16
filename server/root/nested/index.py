@@ -79,7 +79,7 @@ class Index:
 
 <style>
 input[type=text] {
-    width: 100%;
+    width: 100px;
 	height: 45px;
     padding: 12px 20px;
     margin: 8px 0;
@@ -109,7 +109,7 @@ select {
 	}
 
 input[type=submit] {
-    width: 100%;
+    width: 100px;
 	height: 45px;
     padding: 12px 20px;
     margin: 8px 0;
@@ -364,6 +364,56 @@ input[type=submit] {
 
 <head>
 <title>Bookishelf</title>
+
+<style>
+input[type=text] {
+    width: 100px;
+    height: 45px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    -moz-border-radius:28px;
+    -webkit-border-radius:28px;
+    border-radius:28px;
+    border:1px solid #EBF5FB;
+    display:inline-block;
+
+    }
+
+select {
+    border: 0 none;
+    color: #4A235A;
+    background: #FBEEE6;
+    font-size: 24px;
+    font-family: Consolas;
+    font-weight: bold;
+    padding: 2px 10px;
+    width: 150px;
+    height: 45px;
+    border-radius:28px;
+    border:1px solid #EBF5FB;
+    display:inline-block;
+
+    }
+
+input[type=submit] {
+    width: 100px;
+    height: 45px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: 24px;
+    font-family: Consolas;
+    -moz-border-radius:28px;
+    -webkit-border-radius:28px;
+    border-radius:28px;
+    border:1px solid #EBF5FB;
+    display:inline-block;
+    
+}
+
+</style>
+
 </head>
 
 <body background="http://wallpaperus.org/wallpapers/03/122/books-1920x1080-wallpaper-1711426.jpg" text=#D6EAF8>
@@ -528,10 +578,20 @@ input[type=submit] {
 </font>
 
     <br><br>
-    <p align="center"><font face="Century Gothic" color="#FADBD8">
-    Not a member yet?
+
+    <table align=center cellpadding=4>
+    <tr><td align=right>
+    <font face="Century Gothic" color="#FADBD8">
+    Do you have any problem? 
     </font>
-    <a href=http://127.0.0.1:8080/api/register><font color="#EBF5FB">Sign Up</font></a>
+    </td><td align=left>
+    <form method="get" action="http://127.0.0.1:8080/api/ticket">
+    <font color="#EBF5FB">
+    <input type="hidden" name="userid" value="%s">
+    <input type="submit" value="Contact us!"></font>
+    </form>
+    </td></tr>
+    </table>
 
     </font>
 </body>
@@ -541,7 +601,7 @@ input[type=submit] {
 <p align="center">&copy2016&nbsp Bookishelf.com
 </font>
 
-        </html>""" % (username, userid, idsList[0], userid, imageList[0], idsList[1], userid, imageList[1], idsList[2], userid, imageList[2], idsList[3], userid, imageList[3], idsList[4], userid, imageList[4], idsList[0], userid, idsList[1], userid, idsList[2], userid, idsList[3], userid, idsList[4], userid))
+        </html>""" % (username, userid, idsList[0], userid, imageList[0], idsList[1], userid, imageList[1], idsList[2], userid, imageList[2], idsList[3], userid, imageList[3], idsList[4], userid, imageList[4], idsList[0], userid, idsList[1], userid, idsList[2], userid, idsList[3], userid, idsList[4], userid, userid))
     
   
         
