@@ -9,7 +9,7 @@
 import cherrypy
 import pymysql
 
-class Sales:
+class TotalSales:
     
     
     
@@ -19,8 +19,8 @@ class Sales:
         
         conn1 = pymysql.connect(host='localhost', port=3306, user='root', passwd='admin', db='mydb', autocommit=True)
         cur = conn1.cursor()
-        allSales = cur.execute("SELECT order.id, user.username, title, price, date FROM mydb.order INNER JOIN mydb.book on book.id = order.bookid INNER JOIN mydb.user on order.userid = user.userid")
-
+        
+        totSales = cur.execute("SELECT sum(price) FROM mydb.order INNER JOIN mydb.book WHERE order.bookid = book.id")
         
         allSales = cur.fetchall()
         return str(allSales)
