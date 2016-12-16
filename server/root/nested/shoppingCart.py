@@ -97,7 +97,7 @@ Shopping cart
 <table align="center">
 <tr><td>
 <form method="post" action="http://127.0.0.1:8080/api/checkout">
-<input type="hidden" name="userid" value="1">
+<input type="hidden" name="userid" value="2">
 <input type="submit" value="Check Out">
 </form>
 </td>

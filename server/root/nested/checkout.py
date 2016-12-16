@@ -16,7 +16,7 @@ class Checkout:
 
     exposed = True
     
-    def StringGen(self, userid):
+    def StringGen2(self, userid):
         
         conn1 = pymysql.connect(host='localhost', port=3306, user='root', passwd='admin', db='mydb', autocommit=True)
 
@@ -32,9 +32,32 @@ class Checkout:
             tempStr1 = str(tempStr0).replace(")", "")
             tempStr2 = str(tempStr1).replace("'", "")
             tempStr3 = str(tempStr2).replace(",", "")
-            tempHTML = Template("""<img src="${image}" style="width:100px;height:150px;">
+            tempHTML = Template("""<td> <img src="${image}" alt="book" border=3 height=200 width=200> </img> </th>
             """)
             returnString += tempHTML.render(image=tempStr3)
+            
+        return returnString
+    
+    
+    def StringGen1(self, userid):
+        
+        conn1 = pymysql.connect(host='localhost', port=3306, user='root', passwd='admin', db='mydb', autocommit=True)
+
+        cur = conn1.cursor()
+        
+        cur.execute("SELECT book.title from shoppingCart INNER JOIN book on book.id=shoppingCart.bookid INNER JOIN user on user.userid=shoppingCart.userid where shoppingCart.userid=%s" % userid)
+        shoppingCart = cur.fetchall()
+        cur.close()
+        returnString = ""
+        i = 0
+        for i in range(0, len(shoppingCart)):
+            tempStr0 = str(shoppingCart[i]).replace("(", "")
+            tempStr1 = str(tempStr0).replace(")", "")
+            tempStr2 = str(tempStr1).replace("'", "")
+            tempStr3 = str(tempStr2).replace(",", "")
+            tempHTML = Template("""<th>"${title}"</th>
+            """)
+            returnString += tempHTML.render(title=tempStr3)
             
         return returnString
     
@@ -155,8 +178,10 @@ Check Out
         
         
         newcredit = (usercreditint - totalPrice)
+        finalString1 = Checkout.StringGen1(self, 2) 
+        finalString2 = Checkout.StringGen2(self, 2)
         
-        finalString = Checkout.StringGen(self, 1)
+        
         if(totalPrice > usercreditint):
             return('Not enough credit')
         else:
@@ -172,42 +197,41 @@ Check Out
         
         
         cur.close
-        return ("""
-        <!DOCTYPE html>
-<html>
+        return ("""<html>
 <head>
-<title>Buy Book</title>
+<style>
+body{
+      background-image:url("http://www.planwallpaper.com/static/images/light_textured_backround.jpg");
+      background-size: 1500px 1500px;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+}
+</style>
 </head>
-<body background ="http://www.mikelavere.com/wp-content/uploads/2015/03/self-improvement-books.jpg"  text=#0099cc>
-<br><br><br>
-<h2>
-<div align= "center" >
-You have placed your order, thank you!
-</div>
-</h2>
-<div  style="height: 50; width: 300px;"> </div>
-<div align="center">
-%s
-</div>
-<br><br>
-<div align="center">
-<p><b>Order value: %s kr</b></p><br><br>
-</div>
-<br><br>
+<body>
+<div>
+<h1> <i> <center> <p style="margin-top: 4cm;"> YOUR ORDER IS PLACED SUCESSFULLY </p> </center> </i> </h1>
 
-<table align="center">
-<tr><td>
-<form method="get" action="http://127.0.0.1:8080/api/">
-<input type="submit" value="Continue shopping">
-</form>
-</td>
-</tr>
-</table>
-
+<table border="5" bordercolor="gray" align="center">
+    <tr>
+        <th colspan="2" style="color:gray">YOUR ORDER </th> 
+    </tr>
+    <tr>
+        %s
+    </tr>
+    <tr>
+        %s
+    </tr>
+    </table>
+    <table border ="1" bordercolor="gray" align= "center">
+      <tr>    
+        <th colspan="1" colspancolor="blue" align ="center"> Total Amount = %s </th>
+      </tr>
+    </table>
 </div>
-
 </body>
-</html> """ % (finalString, totalPrice))
+</html>""" % (finalString1, finalString2, totalPrice))
         
         
         
