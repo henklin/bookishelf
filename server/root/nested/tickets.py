@@ -37,7 +37,7 @@ class Tickets:
         
         cur.execute("SELECT answer FROM ticket WHERE id = %s", (bookid))
         temp = cur.fetchone()
-        print temp[0]
+        print (temp[0])
         
         if temp[0] == None:
             wholeChange = change + " "
