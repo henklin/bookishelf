@@ -79,18 +79,16 @@ class Index:
 
 <style>
 input[type=text] {
-    width: 100px;
-	height: 45px;
+    width: 200px;
+    height: 45px;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-	-moz-border-radius:28px;
-	-webkit-border-radius:28px;
-	border-radius:28px;
-	border:1px solid #EBF5FB;
-	display:inline-block;
+    border-radius:28px;
+    border:1px solid #EBF5FB;
+    display:inline-block;
 
-	}
+    }
 
 select {
     border: 0 none;
@@ -100,13 +98,13 @@ select {
     font-family: Consolas;
     font-weight: bold;
     padding: 2px 10px;
-    width: 150px;
-	height: 45px;
-	border-radius:28px;
-	border:1px solid #EBF5FB;
-	display:inline-block;
+    width: 200px;
+    height: 45px;
+    border-radius:28px;
+    border:1px solid #EBF5FB;
+    display:inline-block;
 
-	}
+    }
 
 button {
     width: 200px;
@@ -122,19 +120,17 @@ button {
 
 	
 input[type=submit] {
-    width: 100px;
-	height: 45px;
+    width: 200px;
+    height: 45px;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
     font-size: 24px;
     font-family: Consolas;
-	-moz-border-radius:28px;
-	-webkit-border-radius:28px;
-	border-radius:28px;
-	border:1px solid #EBF5FB;
-	display:inline-block;
-	
+    border-radius:28px;
+    border:1px solid #EBF5FB;
+    display:inline-block;
+    
 }
 
 </style>
@@ -380,13 +376,11 @@ input[type=submit] {
 
 <style>
 input[type=text] {
-    width: 100px;
+    width: 200px;
     height: 45px;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-    -moz-border-radius:28px;
-    -webkit-border-radius:28px;
     border-radius:28px;
     border:1px solid #EBF5FB;
     display:inline-block;
@@ -401,7 +395,7 @@ select {
     font-family: Consolas;
     font-weight: bold;
     padding: 2px 10px;
-    width: 150px;
+    width: 200px;
     height: 45px;
     border-radius:28px;
     border:1px solid #EBF5FB;
@@ -409,29 +403,35 @@ select {
 
     }
 
-button {
-    width: 200px;
-	height: 300px;
+.button {
     padding: 0px 0px;
     margin: 0px;
+	}
+
+.button1 {
+    width: 0px;
+	height: 0px;
+	background-color: Transparent;
+	}
+
+.button2 {
+    width: 200px;
+	height: 300px;
     box-sizing: border-box;
 	border-radius:28px;
 	border:0px;
 	display:inline-block;
-
-	}
+	}	
 
 	
 input[type=submit] {
-    width: 100px;
+    width: 200px;
     height: 45px;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
     font-size: 24px;
     font-family: Consolas;
-    -moz-border-radius:28px;
-    -webkit-border-radius:28px;
     border-radius:28px;
     border:1px solid #EBF5FB;
     display:inline-block;
@@ -460,9 +460,9 @@ input[type=submit] {
 
     <div align="right">
     <form action="http://127.0.0.1:8080/api/shoppingCart" method="post">
-    <button>
+    <button class="button button1">
     <input type="hidden" name="userid" value="%s">
-    Shopping Cart<br><img src="https://www.iconexperience.com/_img/g_collection_png/standard/512x512/shopping_cart.png" alt="Shopping Cart" height="150" width="150">
+    Shopping Cart<br><img src="https://www.iconexperience.com/_img/g_collection_png/standard/512x512/shopping_cart.png" alt="Shopping Cart" height="50" width="100">
     </button>
     </form>
     </div>
@@ -504,7 +504,7 @@ input[type=submit] {
 <td><form method="post" action="http://127.0.0.1:8080/api/bookPage">
 <input type="hidden" name="bookid" value="%s">
 <input type="hidden" name="userid" value="%s">
-<button>
+<button class="button button2">
 <img height="300" width="200" src="%s" alt="book1">
 </button>
 </form></td>
@@ -512,7 +512,7 @@ input[type=submit] {
 <td><form method="post" action="http://127.0.0.1:8080/api/bookPage">
 <input type="hidden" name="bookid" value="%s">
 <input type="hidden" name="userid" value="%s">
-<button>
+<button class="button button2">
 <img height="300" width="200" src="%s" alt="book1">
 </button>
 </form></td>
@@ -520,7 +520,7 @@ input[type=submit] {
 <td><form method="post" action="http://127.0.0.1:8080/api/bookPage">
 <input type="hidden" name="bookid" value="%s">
 <input type="hidden" name="userid" value="%s">
-<button>
+<button class="button button2">
 <img height="300" width="200" src="%s" alt="book1">
 </button>
 </form></td>
@@ -528,7 +528,7 @@ input[type=submit] {
 <td><form method="post" action="http://127.0.0.1:8080/api/bookPage">
 <input type="hidden" name="bookid" value="%s">
 <input type="hidden" name="userid" value="%s">
-<button>
+<button class="button button2">
 <img height="300" width="200" src="%s" alt="book1">
 </button>
 </form></td>
@@ -536,7 +536,7 @@ input[type=submit] {
 <td><form method="post" action="http://127.0.0.1:8080/api/bookPage">
 <input type="hidden" name="bookid" value="%s">
 <input type="hidden" name="userid" value="%s">
-<button>
+<button class="button button2">
 <img height="300" width="200" src="%s" alt="book1">
 </button>
 </form></td>

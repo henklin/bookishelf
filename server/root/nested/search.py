@@ -63,6 +63,65 @@ class SearchResult:
 
 <head>
 <title>Bookishelf</title>
+
+<style>
+input[type=text] {
+    width: 200px;
+    height: 45px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius:28px;
+    border:1px solid #EBF5FB;
+    display:inline-block;
+
+    }
+
+select {
+    border: 0 none;
+    color: #4A235A;
+    background: #FBEEE6;
+    font-size: 24px;
+    font-family: Consolas;
+    font-weight: bold;
+    padding: 2px 10px;
+    width: 200px;
+    height: 45px;
+    border-radius:28px;
+    border:1px solid #EBF5FB;
+    display:inline-block;
+
+    }
+
+button {
+    width: 200px;
+	height: 300px;
+    padding: 0px 0px;
+    margin: 0px;
+    box-sizing: border-box;
+	border-radius:28px;
+	border:0px;
+	display:inline-block;
+
+	}
+
+	
+input[type=submit] {
+    width: 200px;
+    height: 45px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: 24px;
+    font-family: Consolas;
+    border-radius:28px;
+    border:1px solid #EBF5FB;
+    display:inline-block;
+    
+}
+
+</style>
+
 </head>
 
 <body background="http://wallpaperus.org/wallpapers/03/122/books-1920x1080-wallpaper-1711426.jpg" text=#D6EAF8>
