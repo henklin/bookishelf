@@ -22,5 +22,6 @@ class TotalSales:
         
         totSales = cur.execute("SELECT sum(price) FROM mydb.order INNER JOIN mydb.book WHERE order.bookid = book.id")
         
+        
         allSales = cur.fetchall()
         return str(allSales)
