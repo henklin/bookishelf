@@ -29,6 +29,8 @@ from tickets import Tickets
 from sales import Sales
 from totalsales import TotalSales
 from bookCircle import BookCircle
+from credit import CreditPage
+
 ##conn = sqlite3.connect('C:/Users/Henrik/test.db')
 ##c=conn.cursor()
 
@@ -181,7 +183,14 @@ if __name__ == '__main__':
             {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
         }
     )
-                        
+
+    cherrypy.tree.mount(
+        CreditPage(), '/api/credit',
+        {'/':
+            {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
+        }
+    )
+	
     cherrypy.engine.start()
     cherrypy.engine.block()
                         
