@@ -447,11 +447,12 @@ input[type=submit] {
 
     <font color="#EBF5FB" size="20"><p align="center">Start by searching your Favorite Book</font>
 
-    <form action="http://localhost:8080/api/search" method="get">
+    <form action="http://localhost:8080/api/search" method="post">
     <table align="center">
 
     <tr><td>
     Search:</td><td align="left"><input type="text" name="title" maxlength="32" size="16">
+    <input type="hidden" name="userid" value="%s">
     </td><td>
     <select name="Genre">
       <option value="Fiction">Fiction</option>
@@ -601,7 +602,7 @@ input[type=submit] {
 <p align="center">&copy2016&nbsp Bookishelf.com
 </font>
 
-        </html>""" % (username, userid, idsList[0], userid, imageList[0], idsList[1], userid, imageList[1], idsList[2], userid, imageList[2], idsList[3], userid, imageList[3], idsList[4], userid, imageList[4], idsList[0], userid, idsList[1], userid, idsList[2], userid, idsList[3], userid, idsList[4], userid, userid))
+        </html>""" % (username, userid, userid, idsList[0], userid, imageList[0], idsList[1], userid, imageList[1], idsList[2], userid, imageList[2], idsList[3], userid, imageList[3], idsList[4], userid, imageList[4], idsList[0], userid, idsList[1], userid, idsList[2], userid, idsList[3], userid, idsList[4], userid, userid))
     
   
         

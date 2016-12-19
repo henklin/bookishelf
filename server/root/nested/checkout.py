@@ -178,8 +178,8 @@ Check Out
         
         
         newcredit = (usercreditint - totalPrice)
-        finalString1 = Checkout.StringGen1(self, 2) 
-        finalString2 = Checkout.StringGen2(self, 2)
+        finalString1 = Checkout.StringGen1(self, userid) 
+        finalString2 = Checkout.StringGen2(self, userid)
         
         
         if(totalPrice > usercreditint):

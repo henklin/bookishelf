@@ -17,6 +17,7 @@ from login import Login
 from bookPage import BookPage
 from ticket import TicketPage
 from shoppingCart import ShoppingCart
+from deleteShoppingCart import DeleteShoppingCart
 from search import SearchResult
 from loginpage import UserLogin
 from loginresult import LoginResult
@@ -117,6 +118,14 @@ if __name__ == '__main__':
     
     cherrypy.tree.mount(
         ShoppingCart(), '/api/shoppingCart',
+        {'/':
+            {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
+        }
+    )
+    
+    
+    cherrypy.tree.mount(
+        DeleteShoppingCart(), '/api/deleteshoppingCart',
         {'/':
             {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
         }

@@ -20,6 +20,10 @@ class ShoppingCart:
         
         cur.execute("SELECT image from shoppingCart INNER JOIN book on book.id=shoppingCart.bookid INNER JOIN user on user.userid=shoppingCart.userid where shoppingCart.userid=%s" % userid)
         shoppingCart = cur.fetchall()
+        
+        cur.execute("SELECT bookid from shoppingCart INNER JOIN book on book.id=shoppingCart.bookid INNER JOIN user on user.userid=shoppingCart.userid where shoppingCart.userid=%s" % userid)
+        bookIds = cur.fetchall()
+        
         cur.close()
         returnString = ""
         i = 0
@@ -28,9 +32,29 @@ class ShoppingCart:
             tempStr1 = str(tempStr0).replace(")", "")
             tempStr2 = str(tempStr1).replace("'", "")
             tempStr3 = str(tempStr2).replace(",", "")
-            tempHTML = Template("""<img src="${image}" alt="harry poter" style="width:100px;height:150px;">
+            
+            temp = str(bookIds[i]).replace("(", "")
+            temp1 = str(temp).replace(")", "")
+            temp2 = str(temp1).replace("'", "")
+            temp3 = str(temp2).replace(",", "")
+            
+            
+            
+            tempHTML = Template("""<td>
+<img src="${image}" alt="harry poter" style="width:100px;height:150px;">
+<br>
+<div align="center">
+<form action="http://127.0.0.1:8080/api/deleteshoppingCart" method="post">
+<input type="hidden" name="bookid" value="${bookid}">
+<input type="hidden" name="theuserid" value="${userid1}">
+<input type="submit" value="Remove">
+</form>
+</div>
+</td>
             """)
-            returnString += tempHTML.render(image=tempStr3)
+            returnString += tempHTML.render(image=tempStr3, bookid=temp3, userid1=userid)
+            
+            
             
         return returnString
             
@@ -84,10 +108,9 @@ class ShoppingCart:
 Shopping cart
 </div>
 </h2>
-<div  style="height: 50; width: 300px;"> </div>
-<div align="center">
+<table align="center"><tr>
 %s
-</div>
+</tr></table>
 <br><br>
 <div align="center">
 <p><b>Total amount: %s kr</b></p><br><br>
