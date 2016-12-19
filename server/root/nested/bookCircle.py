@@ -157,7 +157,7 @@ class BookCircle():
         
         emails = cur.fetchall()
         
-        for x in range(0 , len(emails))
+        for x in range(0 , len(emails)):
             mail(emails[x],"Book Circle", circleMessage)
         
 
