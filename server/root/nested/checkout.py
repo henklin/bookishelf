@@ -6,6 +6,7 @@ Created on 18 nov. 2016
 import cherrypy
 import pymysql
 from mako.template import Template
+import time
 
 ##conn = sqlite3.connect('C:/Users/Henrik/test.db')
 ##c=conn.cursor()
@@ -180,7 +181,7 @@ Check Out
         newcredit = (usercreditint - totalPrice)
         finalString1 = Checkout.StringGen1(self, userid) 
         finalString2 = Checkout.StringGen2(self, userid)
-        
+        date = time.strftime("%Y-%m-%d %H:%M:%S")
         
         if(totalPrice > usercreditint):
             return('Not enough credit')
@@ -188,8 +189,17 @@ Check Out
             x = 0
             cur.execute("UPDATE user SET credit=%s WHERE userid=%s", (newcredit, userid))
             for x in range(0,len(bookIds)):
-                cur.execute("UPDATE book SET qty = qty - 1 WHERE id=%s", (bookIds[x],))
-                cur.execute("UPDATE book SET nrSold = nrSold + 1 WHERE id=%s", (bookIds[x],))
+                
+                temp0 = str(bookIds[x]).replace("(", "")
+                temp1 = str(temp0).replace(")", "")
+                temp2 = str(temp1).replace("'", "")
+                temp3 = str(temp2).replace(",", "")
+                
+                
+                cur.execute("UPDATE book SET qty = qty - 1 WHERE id=%s", (temp3,))
+                cur.execute("UPDATE book SET nrSold = nrSold + 1 WHERE id=%s", (temp3,))
+                print (bookIds[x])
+                cur.execute("INSERT INTO bookOrder(userid, bookid, date) VALUES(%s, %s, '%s')" % (userid, temp3, date))
             cur.execute("DELETE FROM shoppingCart where userid=%s" % userid)
             
         #cur.commit()
