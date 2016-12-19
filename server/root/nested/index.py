@@ -108,6 +108,19 @@ select {
 
 	}
 
+button {
+    width: 200px;
+	height: 300px;
+    padding: 0px 0px;
+    margin: 0px;
+    box-sizing: border-box;
+	border-radius:28px;
+	border:0px;
+	display:inline-block;
+
+	}
+
+	
 input[type=submit] {
     width: 100px;
 	height: 45px;
@@ -396,6 +409,19 @@ select {
 
     }
 
+button {
+    width: 200px;
+	height: 300px;
+    padding: 0px 0px;
+    margin: 0px;
+    box-sizing: border-box;
+	border-radius:28px;
+	border:0px;
+	display:inline-block;
+
+	}
+
+	
 input[type=submit] {
     width: 100px;
     height: 45px;
