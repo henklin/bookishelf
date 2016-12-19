@@ -226,52 +226,42 @@ input[type=submit] {
 
 <tr>
 
-<form method="post" action="http://127.0.0.1:8080/api/shoppingCart">
+<form method="get" action="http://127.0.0.1:8080/api/login">
 
 <td align="center">
-<input type="hidden" name="bookid" value=%s>
-<input type="hidden" name="userid" value=1>
 <input type="submit" value="Add to cart">
 </td>
 
 </form>
 
-<form method="post" action="http://127.0.0.1:8080/api/shoppingCart">
+<form method="get" action="http://127.0.0.1:8080/api/login">
 
 <td align="center">
-<input type="hidden" name="bookid" value=%s>
-<input type="hidden" name="userid" value=1>
 <input type="submit" value="Add to cart">
 </td>
 
 </form>
 
-<form method="post" action="http://127.0.0.1:8080/api/shoppingCart">
+<form method="get" action="http://127.0.0.1:8080/api/login">
 
-<td align="center">
-<input type="hidden" name="bookid" value=%s>
-<input type="hidden" name="userid" value=1>
+<td align="get">
 <input type="submit" value="Add to cart">
 </td>
 
 </form>
 
-<form method="post" action="http://127.0.0.1:8080/api/shoppingCart">
+<form method="get" action="http://127.0.0.1:8080/api/login">
 
 <td align="center">
-<input type="hidden" name="bookid" value=%s>
-<input type="hidden" name="userid" value=1>
 <input type="submit" value="Add to cart">
 </td>
 
 </form>
 
 
-<form method="post" action="http://127.0.0.1:8080/api/shoppingCart">
+<form method="get" action="http://127.0.0.1:8080/api/login">
 
 <td align="center">
-<input type="hidden" name="bookid" value=%s>
-<input type="hidden" name="userid" value=1>
 <input type="submit" value="Add to cart">
 </td>
 </form>
@@ -299,7 +289,7 @@ input[type=submit] {
 <p align="center">&copy2016&nbsp Bookishelf.com
 </font>
 
-        </html>""" % (idsList[0], imageList[0], idsList[1], imageList[1], idsList[2], imageList[2], idsList[3], imageList[3], idsList[4], imageList[4], idsList[0], idsList[1], idsList[2], idsList[3], idsList[4]))
+        </html>""" % (idsList[0], imageList[0], idsList[1], imageList[1], idsList[2], imageList[2], idsList[3], imageList[3], idsList[4], imageList[4]))
         
         
     def POST(self, userid):
