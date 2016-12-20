@@ -14,6 +14,7 @@ from checkout import Checkout
 from book import Book
 from index import Index
 from login import Login
+from addCredit import AddCredit
 from bookPage import BookPage
 from ticket import TicketPage
 from shoppingCart import ShoppingCart
@@ -165,6 +166,14 @@ if __name__ == '__main__':
     
     cherrypy.tree.mount(
         Sales(), '/api/sales',
+        {'/':
+            {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
+        }
+    )
+    
+    
+    cherrypy.tree.mount(
+        AddCredit(), '/api/addcredit',
         {'/':
             {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
         }
