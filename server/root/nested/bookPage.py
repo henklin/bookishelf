@@ -168,8 +168,14 @@ input[type=submit] {
             </td>
             </tr>
             <tr><td>
-            <button  class="button button1" onClick="" value="Go to Book circle">Go to Book Circle</button>
-            </td></tr></table>
+            <form action="http://localhost:8080/api/bookCirclePage" method="post">
+            <input type="hidden" value="%s" name="bookid">
+            <input type="hidden" value="%s" name="userid">
+            <input type="submit" value="Go to Book Circle">
+            </form>
+            </td></tr>
+            </table>
+            
             <font face="Century Gothic" color="#1A5276">
             <hr align="center" width="50">
             <p align="center">&copy2016&nbsp Bookishelf.com
@@ -178,11 +184,18 @@ input[type=submit] {
             
             
             </html>
-""" % (userid, userid, bookTitle[0], bookImage[0], bookDesc[0], bookPrice[0], qtyString, bookid, userid))
+""" % (userid, userid, bookTitle[0], bookImage[0], bookDesc[0], bookPrice[0], qtyString, bookid, userid, bookid, userid))
 
+            
+            
+          
+            
+            
+        
 
-
-
+    
+    
+    
     def GET(self, bookid):
         
         conn1 = pymysql.connect(host='localhost', port=3306, user='root', passwd='admin', db='mydb', autocommit=True)
@@ -258,6 +271,12 @@ Price-%s kr<br>
 
 </td>
 </tr>
+<br>
+<form action="http://localhost:8080/api/bookCircle" method="GET">
+<input type="hidden" value="%s" name="bookid">
+<input type="submit" value="Go to Book Circle">
+</form>
+</td></tr>
 </table>
 
 <font face="Century Gothic" color="#1A5276">
@@ -267,7 +286,7 @@ Price-%s kr<br>
 </body>
 
 
-        </html>""" % (bookTitle[0], bookImage[0], bookDesc[0], bookPrice[0], qtyString))
+        </html>""" % (bookTitle[0], bookImage[0], bookDesc[0], bookPrice[0], qtyString, bookid))
 
     
   

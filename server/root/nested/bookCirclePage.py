@@ -3,50 +3,16 @@ Created on 19 dec. 2016
 
 @author: Alejandro P. Hernandez
 '''
-'''
-import os, os.path
-import string
+
 import cherrypy
 import pymysql
-import requests
-import smtplib
 
-from email.mime.multipart import MIMEMultipart
-from email.mime.base import MIMEBase
-from email.mime.text import MIMEText
-from email import Encoders
+class BookCirclePage:
 
-class BookCircle:
 
     exposed = True
 
-    def mail(self, to, subject, text):
-    
-        gmail_user = "bookishelfNoReply@gmail.com"
-        gmail_pwd = "bookishelf1"
-        
-        msg = MIMEMultipart()
-    
-        msg['From'] = gmail_user
-        msg['To'] = to
-        msg['Subject'] = subject
-    
-        msg.attach(MIMEText(text))
-    
-    
-        mailServer = smtplib.SMTP("smtp.gmail.com", 587)
-        mailServer.ehlo()
-        mailServer.starttls()
-        mailServer.ehlo()
-        mailServer.login(gmail_user, gmail_pwd)
-        mailServer.sendmail(gmail_user, to, msg.as_string())
-    
-        mailServer.close()
-
-
-    
-    
-    def GET(self, bookid):
+    def POST(self, bookid, userid):
         
         return ("""
             
@@ -121,6 +87,7 @@ class BookCircle:
             Enter your request:
             </font>
             <input type="hidden" name="bookid" value="%s">
+            <input type="hidden" name="userid" value="%s">
             <tr></td><td align="left"><textarea cols="100" rows="10" height="500px" width="5000px" name="circleMessage" maxlength="500" size="16"> </textarea></td></tr>
             
             
@@ -141,36 +108,7 @@ class BookCircle:
             </font>
 
             
-            """ % (bookid))
-        
-        
-    def POST(self, bookid, userid, circleMessage):
-        
-        conn1 = pymysql.connect(host='localhost', port=3306, user='root', passwd='admin', db='mydb', autocommit=True)
-
-        cur = conn1.cursor()
-        
-        cur.execute("SELECT email FROM mydb.user WHERE userid = %s" % (userid))
-        
-        senderEmail = cur.fetchone()
-        tempSt0 = str(senderEmail[0]).replace("(", "")
-        tempSt1 = str(tempSt0).replace(")", "")
-        tempSt2 = str(tempSt1).replace("'", "")
-        tempSt3 = str(tempSt2).replace(",", "")
-        
-        circleMessage = circleMessage + " \n This is my email, if you want to keep talking about the book please contanct me: " + tempSt3
-
-        cur.execute("SELECT email FROM mydb.user INNER JOIN mydb.order WHERE bookID = %s" % (bookid))
-        
-        emails = cur.fetchall()
-        
-        for x in range(0 , len(emails)):
-            tempStr0 = str(emails[x]).replace("(", "")
-            tempStr1 = str(tempStr0).replace(")", "")
-            tempStr2 = str(tempStr1).replace("'", "")
-            tempStr3 = str(tempStr2).replace(",", "")
-            BookCircle.mail(self, tempStr3 ,"Book Circle", circleMessage)
-
+            """ % (bookid, userid))
 
         
-'''
+
