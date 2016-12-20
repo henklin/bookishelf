@@ -93,8 +93,9 @@ Price-%s kr<br>
 <input type="submit" value="Add to Cart" name="cart">
 </form>
 <br>
-<form action="http://localhost:8080/api/bcircle" method="get">
+<form action="http://localhost:8080/api/bookCirclePage" method="post">
 <input type="hidden" value="%s" name="bookid">
+<input type="hidden" value="%s" name="userid">
 <input type="submit" value="Go to Book Circle">
 </form>
 </td></tr>
@@ -107,7 +108,7 @@ Price-%s kr<br>
 </body>
 
 
-        </html>""" % (userid, bookTitle[0], bookImage[0], bookDesc[0], bookPrice[0], qtyString, bookid))
+        </html>""" % (userid, bookTitle[0], bookImage[0], bookDesc[0], bookPrice[0], qtyString, bookid, userid))
 
     
     
@@ -190,7 +191,7 @@ Price-%s kr<br>
 </td>
 </tr>
 <br>
-<form action="http://localhost:8080/api/bcircle" method="GET">
+<form action="http://localhost:8080/api/bookCircle" method="GET">
 <input type="hidden" value="%s" name="bookid">
 <input type="submit" value="Go to Book Circle">
 </form>
