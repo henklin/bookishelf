@@ -92,10 +92,8 @@ Price-%s kr<br>
 <form action="credit.html">
 <input type="submit" value="Add to Cart" name="cart">
 </form>
-</td>
-</tr>
-<tr><td>
-<form action="credit.html">
+<br>
+<form action="http://localhost:8080/api/bcircle" method="get">
 <input type="hidden" value="%s" name="bookid">
 <input type="submit" value="Go to Book Circle">
 </form>
@@ -191,6 +189,12 @@ Price-%s kr<br>
 </form>
 </td>
 </tr>
+<br>
+<form action="http://localhost:8080/api/bcircle" method="GET">
+<input type="hidden" value="%s" name="bookid">
+<input type="submit" value="Go to Book Circle">
+</form>
+</td></tr>
 </table>
 
 <font face="Century Gothic" color="#1A5276">
@@ -200,7 +204,7 @@ Price-%s kr<br>
 </body>
 
 
-        </html>""" % (bookTitle[0], bookImage[0], bookDesc[0], bookPrice[0], qtyString))
+        </html>""" % (bookTitle[0], bookImage[0], bookDesc[0], bookPrice[0], qtyString, bookid))
 
     
   

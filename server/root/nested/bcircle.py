@@ -1,12 +1,12 @@
 '''
-Created on 19 dec. 2016
-
-@author: Alejandro P. Hernandez
-'''
+    Created on 19 dec. 2016
+    
+    @author: Alejandro P. Hernandez
+            tejeswy yadavalli
+    '''
 
 import os, os.path
 import string
-
 import cherrypy
 import pymysql
 import requests
@@ -16,35 +16,33 @@ from email.MIMEMultipart import MIMEMultipart
 from email.MIMEBase import MIMEBase
 from email.MIMEText import MIMEText
 from email import Encoders
-import os
 
-class BookCircle():
-
+class Bcircle:
 
     gmail_user = "bookishelfNoReply@gmail.com"
     gmail_pwd = "bookishelf1"
-
+    
     def mail(to, subject, text):
-    
-    
+        
+        
         msg = MIMEMultipart()
-    
+        
         msg['From'] = gmail_user
         msg['To'] = to
         msg['Subject'] = subject
-    
+        
         msg.attach(MIMEText(text))
-    
-    
+        
+        
         mailServer = smtplib.SMTP("smtp.gmail.com", 587)
         mailServer.ehlo()
         mailServer.starttls()
         mailServer.ehlo()
         mailServer.login(gmail_user, gmail_pwd)
         mailServer.sendmail(gmail_user, to, msg.as_string())
-    
+        
         mailServer.close()
-
+        
         exposed = True
     
     
@@ -142,17 +140,17 @@ class BookCircle():
             <hr align="center" width="50px">
             <p align="center">&copy2016&nbsp Bookishelf.com
             </font>
-
+            
             
             """ % (bookid))
-        
-        
+    
+    
     def POST(self, bookid, circleMessage):
         
         conn1 = pymysql.connect(host='localhost', port=3306, user='root', passwd='admin', db='mydb', autocommit=True)
-
+        
         cur = conn1.cursor()
-
+        
         cur.execute("SELECT email FROM user INNER JOIN order WHERE bookID = %s)" % (bookID))
         
         emails = cur.fetchall()
@@ -160,7 +158,12 @@ class BookCircle():
         for x in range(0 , len(emails)):
             mail(emails[x],"Book Circle", circleMessage)
         
+        return 'Success'
 
-        cur.close
-        
+
+
+
+
+
+
 

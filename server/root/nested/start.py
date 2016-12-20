@@ -29,7 +29,7 @@ from registered import Register
 from tickets import Tickets
 from sales import Sales
 from totalsales import TotalSales
-from bookCircle import BookCircle
+from bcircle import Bcircle
 from credit import CreditPage
 
 ##conn = sqlite3.connect('C:/Users/Henrik/test.db')
@@ -187,7 +187,7 @@ if __name__ == '__main__':
     )
     
     cherrypy.tree.mount(
-        BookCircle(), '/api/bookCircle',
+        Bcircle(), '/api/bcircle',
         {'/':
             {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
         }
