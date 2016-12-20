@@ -19,7 +19,7 @@ class Sales:
         
         conn1 = pymysql.connect(host='localhost', port=3306, user='root', passwd='admin', db='mydb', autocommit=True)
         cur = conn1.cursor()
-        allSales = cur.execute("SELECT order.id, user.username, title, price, date FROM mydb.order INNER JOIN mydb.book on book.id = order.bookid INNER JOIN mydb.user on order.userid = user.userid")
+        allSales = cur.execute("SELECT bookOrder.id, user.username, title, price, date FROM bookOrder INNER JOIN mydb.book on book.id = bookOrder.bookid INNER JOIN mydb.user on bookOrder.userid = user.userid")
 
         
         allSales = cur.fetchall()

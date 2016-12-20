@@ -20,7 +20,7 @@ class TotalSales:
         conn1 = pymysql.connect(host='localhost', port=3306, user='root', passwd='admin', db='mydb', autocommit=True)
         cur = conn1.cursor()
         
-        totSales = cur.execute("SELECT sum(price) FROM mydb.order INNER JOIN mydb.book WHERE order.bookid = book.id")
+        totSales = cur.execute("SELECT sum(price) FROM mydb.bookOrder INNER JOIN mydb.book WHERE bookOrder.bookid = book.id")
         
         
         allSales = cur.fetchall()

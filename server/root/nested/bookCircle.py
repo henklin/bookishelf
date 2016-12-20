@@ -3,7 +3,7 @@ Created on 19 dec. 2016
 
 @author: Alejandro P. Hernandez
 '''
-'''
+
 import os, os.path
 import string
 import cherrypy
@@ -160,7 +160,7 @@ class BookCircle:
         
         circleMessage = circleMessage + " \n This is my email, if you want to keep talking about the book please contanct me: " + tempSt3
 
-        cur.execute("SELECT email FROM mydb.user INNER JOIN mydb.order WHERE bookID = %s" % (bookid))
+        cur.execute("SELECT email FROM mydb.user INNER JOIN bookOrder WHERE bookID = %s" % (bookid))
         
         emails = cur.fetchall()
         
@@ -173,4 +173,4 @@ class BookCircle:
 
 
         
-'''
+
