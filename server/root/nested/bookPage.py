@@ -56,12 +56,83 @@ class BookPage:
             
             <head>
             <title>Book page</title>
+            
+            <style>
+input[type=text] {
+    width: 200px;
+    height: 45px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius:28px;
+    border:1px solid #EBF5FB;
+    display:inline-block;
+
+    }
+
+select {
+    border: 0 none;
+    color: #4A235A;
+    background: #FBEEE6;
+    font-size: 24px;
+    font-family: Consolas;
+    font-weight: bold;
+    padding: 2px 10px;
+    width: 200px;
+    height: 45px;
+    border-radius:28px;
+    border:1px solid #EBF5FB;
+    display:inline-block;
+
+    }
+
+.button {
+    padding: 0px 0px;
+    margin: 0px;
+    }
+
+.button1 {
+    width: 0px;
+    height: 0px;
+    background-color: Transparent;
+    }
+
+.button2 {
+    width: 0px;
+    height: 0px;
+    box-sizing: border-box;
+    border-radius:28px;
+    border:0px;
+    display:inline-block;
+    }    
+
+    
+input[type=submit] {
+    width: 200px;
+    height: 45px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: 24px;
+    font-family: Consolas;
+    border-radius:28px;
+    border:1px solid #EBF5FB;
+    display:inline-block;
+    
+}
+
+</style>
+
+            
             </head>
             
             <div align="left">
-            <a href="Homepage.html">
+            <form action="http://127.0.0.1:8080/api/" id="form1" method=post>
+            <input type=hidden name="userid" value="%s">
+            <button class="button button2" type=submit form="form1">
             <img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">
-            </a>
+            </button>
+            </form>
             
             <div align="right">
             <form action="http://127.0.0.1:8080/api/shoppingCart" method="post">
@@ -89,13 +160,15 @@ class BookPage:
             Price-%s kr<br>
             %s<br>
             </font><br>
-            <form action="credit.html">
-            <input type = "submit" value="Add to Cart" name="cart">
+            <form action="http://127.0.0.1:8080/api/addshoppingCart" method=post>
+            <input type=hidden name="bookid" value="%s">
+            <input type=hidden name="userid" value="%s">
+            <input type="submit" value="Add to Cart">
             </form>
             </td>
             </tr>
             <tr><td>
-            <button onClick="" value="Go to Book circle"s>Go to Book Circle</button>
+            <button  class="button button1" onClick="" value="Go to Book circle">Go to Book Circle</button>
             </td></tr></table>
             <font face="Century Gothic" color="#1A5276">
             <hr align="center" width="50">
@@ -105,7 +178,7 @@ class BookPage:
             
             
             </html>
-""" % (userid, bookTitle[0], bookImage[0], bookDesc[0], bookPrice[0], qtyString))
+""" % (userid, userid, bookTitle[0], bookImage[0], bookDesc[0], bookPrice[0], qtyString, bookid, userid))
 
 
 
@@ -152,7 +225,7 @@ class BookPage:
 </head>
 
     <div align="left">
-    <a href="Homepage.html">
+    <a href="http://127.0.0.1:8080/api/">
     <img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">
     </a>
 
@@ -182,9 +255,7 @@ class BookPage:
 Price-%s kr<br>
 %s<br>
 </font><br>
-<form action="credit.html">
-<input type="submit" value="Add to Cart" name="cart">
-</form>
+
 </td>
 </tr>
 </table>

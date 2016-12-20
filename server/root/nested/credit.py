@@ -114,9 +114,6 @@ input[type=submit] {
 	<p align="center">Enter the required details:
 	</font>
 
-	<input type="hidden" name="userid" value="%s">
-
-	<form action="http://localhost:8080/api/ticket" method="post">
 	<table align="center">
 	
 	<tr><td align="right">	<font color="#EBF5FB" size="11">
@@ -145,12 +142,25 @@ input[type=submit] {
     </div>
 	</font>
 	</td></tr>
-	<tr>
-	<input type="hidden" name="open" value="1">
-	<td colspan=2 align=center><input type="submit" value="Submit details"></td></tr>
-	</table>
 
+    <form action="http://localhost:8080/api/addcredit" method="post">
+    <tr><td align="right">    <font color="#EBF5FB" size="11">
+    Add amount:
+    </td><td align="left"><select name="amount">
+    <option value="10">10</option>
+    <option value="50">50</option>
+    <option value="100">100</option>
+    <option value="200">200</option>
+    <option value="500">500</option>
+    </select>
+    </font>
+    </td></tr>
+	<tr>
+	<input type="hidden" name="userid" value="%s">
+	<td colspan=2 align=center><input type="submit" value="Submit details"></td></tr>
 	</form>
+    </table>
+
 	<br><br>
 
 </body>
@@ -160,4 +170,4 @@ input[type=submit] {
 <p align="center">&copy2016&nbsp Bookishelf.com
 </font>
 
-        </html>""")
+        </html>""" % (userid))

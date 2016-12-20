@@ -125,11 +125,17 @@ Shopping cart
 </form>
 </td>
 </tr>
+<tr><td>
+<form method="post" action="http://127.0.0.1:8080/api/credit">
+<input type="hidden" name="userid" value="%s">
+<input type="submit" value="Out of credits?">
+</form>
+</td></tr>
 </table>
 
 </div>
 
 </body>
-</html> """ % (finalString, totalPrice))
+</html> """ % (finalString, totalPrice, userid))
     
     

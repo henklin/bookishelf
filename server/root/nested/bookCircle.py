@@ -3,7 +3,7 @@ Created on 19 dec. 2016
 
 @author: Alejandro P. Hernandez
 '''
-
+'''
 import os, os.path
 import string
 
@@ -12,9 +12,9 @@ import pymysql
 import requests
 import smtplib
 
-from email.MIMEMultipart import MIMEMultipart
-from email.MIMEBase import MIMEBase
-from email.MIMEText import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.mime.base import MIMEBase
+from email.mime.text import MIMEText
 from email import Encoders
 import os
 
@@ -163,4 +163,4 @@ class BookCircle():
 
         cur.close
         
-
+'''
