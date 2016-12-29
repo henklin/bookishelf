@@ -53,8 +53,14 @@ class LoginResult:
 
 <body background="http://wallpaperus.org/wallpapers/03/122/books-1920x1080-wallpaper-1711426.jpg" text=#D6EAF8>
 	
-	
-	<img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">
+            
+            <table>
+            <tr><td>
+            <a href="http://localhost:8080/api/">
+            <img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">
+            </a>
+            </td></tr>
+            </table>
 
 	<h1>
 	<font face="Century Gothic" color="#FCF3CF">
@@ -68,7 +74,7 @@ class LoginResult:
 	
 	<font color="#EBF5FB"><p align="center">Retry to Login</font>
 
-	<form action="http://localhost:8080/api/loginresult" method="get">
+	<form action="http://localhost:8080/api/loginresult" method="post">
 	<table align="center">
 
 	<tr><td>
@@ -76,7 +82,7 @@ class LoginResult:
 	</td></tr>
 
 	<tr><td>
-	Password:</td><td align="left"><input type="text" name="pswd" maxlength="32" size="16">
+	Password:</td><td align="left"><input type="password" name="pswd" maxlength="32" size="16">
 	</td></tr>
 
 	<tr><td align="center"><input type="submit" value="Login"></td></tr>

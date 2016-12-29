@@ -61,7 +61,7 @@ class BookCirclePage:
             
             <table>
             <tr><td>
-            <a href="http://localhost:8080/api/bookihomepage">
+            <a href="http://localhost:8080/api/">
             <img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">
             </a>
             </td>

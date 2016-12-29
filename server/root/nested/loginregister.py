@@ -24,7 +24,7 @@ class RegisterPage:
 <body background="http://wallpaperus.org/wallpapers/03/122/books-1920x1080-wallpaper-1711426.jpg" text=#D6EAF8 ng-app="reg">
 
 	
-	<a href="http://localhost:8080/api/index">
+	<a href="http://localhost:8080/api/">
 	<img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">
 	</a>
 

@@ -87,6 +87,16 @@ class Checkout:
 <title>Buy Book</title>
 </head>
 <body background ="http://www.mikelavere.com/wp-content/uploads/2015/03/self-improvement-books.jpg"  text=#0099cc>
+
+            
+            <table>
+            <tr><td>
+            <a href="http://localhost:8080/api/">
+            <img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">
+            </a>
+            </td></tr>
+            </table>
+
 <br><br><br>
 <h2>
 <div align= "center" >
@@ -220,6 +230,19 @@ body{
 </style>
 </head>
 <body>
+
+            
+            <table>
+            <tr><td>
+            <a href="http://localhost:8080/api/">
+            <img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">
+            </a>
+            </td>
+            <td width="1000" align="right">
+            <h2><a href="http://localhost:8080/api/logoutpage"><font size=15 face="Consolas" color="#EBF5FB">Logout</font></a></h2>
+            </td></tr>
+            </table>
+
 <div>
 <h1> <i> <center> <p style="margin-top: 4cm;"> YOUR ORDER IS PLACED SUCESSFULLY </p> </center> </i> </h1>
 

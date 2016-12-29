@@ -146,6 +146,16 @@ input[type=submit] {
             
             <body background="http://wallpaperus.org/wallpapers/03/122/books-1920x1080-wallpaper-1711426.jpg" text=#D6EAF8>
             
+            <table>
+            <tr><td>
+            <a href="http://localhost:8080/api/">
+            <img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">
+            </a>
+            </td>
+            <td width="1000" align="right">
+            <h2><a href="http://localhost:8080/api/logoutpage"><font size=15 face="Consolas" color="#EBF5FB">Logout</font></a></h2>
+            </td></tr>
+            </table>
             
             <h1 align="center"><font face="Century Gothic" color="#EBF5FB">%s</font></h1>
             <font size=5 face="Consolas" color="#EBF5FB">
@@ -253,6 +263,15 @@ input[type=submit] {
     
 
 <body background="http://wallpaperus.org/wallpapers/03/122/books-1920x1080-wallpaper-1711426.jpg" text=#D6EAF8>
+
+            
+            <table>
+            <tr><td>
+            <a href="http://localhost:8080/api/">
+            <img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">
+            </a>
+            </td></tr>
+            </table>
 
 
 <h1 align="center"><font face="Century Gothic" color="#EBF5FB">%s</font></h1>

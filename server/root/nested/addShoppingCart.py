@@ -54,8 +54,7 @@ body{
 }input[type=submit] {    width: 300px;    height: 45px;    padding: 12px 20px;    margin: 8px 0;    box-sizing: border-box;    font-size: 24px;    font-family: Consolas;    border-radius:28px;    border:1px solid #EBF5FB;    display:inline-block;}
 </style>
 </head>
-<body>
-
+<body>    <table>    <tr><td>    <a href="http://localhost:8080/api/">    <img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">    </a>    </td></tr>    </table>
 <h1> <i> <center> <font size="10"> <p style="margin-top: 10cm;"> Book Sucessfully added into cart </p></font> </center> </i></h1>
 <form action="http://127.0.0.1:8080/api/" method=post><input type=hidden name="userid" value="%s"><center> <font size="10"> <input type=submit value="Continue Shopping"></font> </center></form>
 </body>
