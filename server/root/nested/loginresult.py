@@ -126,7 +126,7 @@ class LoginResult:
 	<p align="center"><font face="Century Gothic" color="#FADBD8">
 	Not a member yet?
 	</font>
-	<a href=http://localhost:8080/api/loginregister><font color="#EBF5FB">Sign Up</font></a>
+	<a href=http://localhost:8080/api/register><font color="#EBF5FB">Sign Up</font></a>
 
 	</font>
 </body>

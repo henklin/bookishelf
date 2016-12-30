@@ -26,7 +26,7 @@ class UserLogin:
 <body background="http://wallpaperus.org/wallpapers/03/122/books-1920x1080-wallpaper-1711426.jpg" text=#D6EAF8>
 
 	
-	<a href="http//localhost:8080/api/">
+	<a href="/api/">
 	<img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">
 	</a>
 
@@ -36,7 +36,7 @@ class UserLogin:
 	</font>
 	</h1>
 	<font size=5 face="Consolas" color="#FADBD8">
-	<hr width=50% align="left">
+	<hr width=5000px align="left">
 	<br><br><br>
 
 	<font color="#EBF5FB"><p align="center">Enter your details to Login</font>
@@ -49,7 +49,7 @@ class UserLogin:
 	</td></tr>
 
 	<tr><td>
-	Password:</td><td align="left"><input type="text" name="pswd" maxlength="32" size="16">
+	Password:</td><td align="left"><input type="password" name="pswd" maxlength="32" size="16">
 	</td></tr>
 
 	<tr><td align="center"><input type="submit" value="Login"></td></tr>
@@ -62,7 +62,7 @@ class UserLogin:
 	<p align="center"><font face="Century Gothic" color="#2E86C1">
 	Not a member yet?
 	</font>
-	<a href=http://localhost:8080/api/loginregister><font color="#EBF5FB">Sign Up</font></a>
+	<a href=http://localhost:8080/api/register><font color="#EBF5FB">Sign Up</font></a>
 
 	</font>
 </body>

@@ -107,7 +107,7 @@ input[type=submit] {
 	&nbsp ADD CREDITS
 	</font>
 	</h1>
-	<hr width=50px align="left">
+	<hr width=1000px align="left">
 
 	<font color="#EBF5FB" size="20"><p align="center">Fill in the details for adding credits</font>
 	<font face="Consolas" size="8" color="#2E86C1">

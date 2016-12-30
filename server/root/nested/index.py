@@ -155,7 +155,7 @@ input[type=submit] {
     </font>
     </h1>
     <font size="16" face="Consolas" color="#2E86C1">
-    <hr width=50 align="left">
+    <hr width=1000px align="left">
 
     <font color="#EBF5FB" size="20"><p align="center">Start by searching your Favorite Book</font>
 
@@ -439,13 +439,18 @@ input[type=submit] {
     <tr><td>
     <img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="100" width="300">
     </td>
-    <td width="1000" align="right">
+    <tr>
+	<td width="1000" align="right">
+    <h2><a href="http://localhost:8080/api/logoutpage"><font size=15 face="Consolas" color="#EBF5FB">Logout</font></a></h2>
+    </td></tr>
+    <tr><td width="1000" align="right">
     <h1>
     <font face="Century Gothic" color="#FCF3CF">
     &nbsp LOGGED IN AS: %s
     </font>
     </h1>
     </td></tr>
+	</tr>
     </table>
 
     <div align="right">
@@ -459,7 +464,7 @@ input[type=submit] {
 
 
     <font size="16" face="Consolas" color="#2E86C1">
-    <hr width=50 align="left">
+    <hr width=1000px align="left">
 
     <font color="#EBF5FB" size="20"><p align="center">Start by searching your Favorite Book</font>
 

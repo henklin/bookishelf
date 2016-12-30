@@ -39,7 +39,7 @@ class RegisterPage:
 
 	<font color="#EBF5FB"><p align="center">Enter your details to Register</font>
 
-	<form action="http://localhost:8080/api/registersend" method="post" >
+	<form action="http://localhost:8080/api/registered" method="post" >
 	<table align="center">
 
 	<tr><td>

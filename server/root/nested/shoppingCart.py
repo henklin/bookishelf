@@ -104,16 +104,19 @@ class ShoppingCart:
 <body background ="http://www.mikelavere.com/wp-content/uploads/2015/03/self-improvement-books.jpg"  text=#0099cc>
 
             
-            <table>
-            <tr><td>
-            <a href="http://localhost:8080/api/">
-            <img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">
-            </a>
-            </td>
-            <td width="1000" align="right">
-            <h2><a href="http://localhost:8080/api/logoutpage"><font size=15 face="Consolas" color="#EBF5FB">Logout</font></a></h2>
-            </td></tr>
-            </table>
+	<table>
+	<tr><td>
+	<form method=post action="http://localhost:8080/api/">
+	<input type="hidden" name="userid" value="%s">
+	<button>
+	<img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">
+	</button>
+	</form>
+	</td>
+	<td width="1000" align="right">
+	<h2><a href="http://localhost:8080/api/logoutpage"><font size=15 face="Consolas" color="#EBF5FB">Logout</font></a></h2>
+	</td></tr>
+	</table>
 
 <br><br><br>
 <h2>
@@ -149,6 +152,6 @@ Shopping cart
 </div>
 
 </body>
-</html> """ % (finalString, totalPrice, userid, userid))
+</html> """ % (userid, finalString, totalPrice, userid, userid))
     
     
