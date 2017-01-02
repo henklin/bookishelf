@@ -282,7 +282,7 @@ button {
 <font size=3>Author-TBA</font><br>
 Price-%s kr<br>
 %s<br>
-</font><br>
+</font>
 </td></tr>
 </table>
 
