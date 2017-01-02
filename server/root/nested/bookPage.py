@@ -291,10 +291,6 @@ Price-%s kr<br>
 </td>
 </tr>
 <br>
-<form action="http://localhost:8080/api/bookCircle" method="GET">
-<input type="hidden" value="%s" name="bookid">
-<input type="submit" value="Go to Book Circle">
-</form>
 </td></tr>
 </table>
 
