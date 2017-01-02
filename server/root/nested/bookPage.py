@@ -301,7 +301,7 @@ Price-%s kr<br>
 </body>
 
 
-        </html>""" % (bookTitle[0], bookImage[0], bookDesc[0], bookPrice[0], qtyString, bookid))
+        </html>""" % (bookTitle[0], bookImage[0], bookDesc[0], bookPrice[0], qtyString))
 
     
   
