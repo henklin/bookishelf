@@ -234,9 +234,12 @@ body{
             
             <table>
             <tr><td>
-            <a href="http://localhost:8080/api/">
+            <form action="http://127.0.0.1:8080/api/" id="form1" method=post>
+            <input type=hidden name="userid" value="%s">
+            <button class="button button2" type=submit form="form1">
             <img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">
-            </a>
+            </button>
+            </form>
             </td>
             <td width="1000" align="right">
             <h2><a href="http://localhost:8080/api/logoutpage"><font size=15 face="Consolas" color="#EBF5FB">Logout</font></a></h2>
@@ -264,7 +267,7 @@ body{
     </table>
 </div>
 </body>
-</html>""" % (finalString1, finalString2, totalPrice))
+</html>""" % (userid, finalString1, finalString2, totalPrice))
         
         
         

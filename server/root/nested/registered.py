@@ -23,6 +23,14 @@ class Register:
 
         cur.close
 
+        conn2 = pymysql.connect(host='localhost', port=3306, user='root', passwd='admin', db='mydb', autocommit=True)
+
+        cur2 = conn2.cursor()
+
+        cur2.execute("SELECT userid FROM user WHERE username=%s", username)
+
+        userid=cur2.fetchone()
+
         return ("""
         <!DOCTYPE html>
 
@@ -35,11 +43,14 @@ class Register:
 
             <table>
             <tr><td>
-            <a href="http://localhost:8080/api/">
-            <img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">
-            </a>
-            </td>
-            <td width="1000" align="right">
+    	    <form method=post action="http://localhost:8080/api/">
+    	    <input type="hidden" name="userid" value="%s">
+	        <button>
+	        <img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">
+    	    </button>
+    	    </form>
+    	    </td>
+	        <td width="1000" align="right">
             <h2><a href="http://localhost:8080/api/logoutpage"><font size=15 face="Consolas" color="#EBF5FB">Logout</font></a></h2>
             </td></tr>
             </table>
@@ -68,4 +79,4 @@ class Register:
 <p align="center">&copy2016&nbsp Bookishelf.com
 </font>
 
-        </html>""" % (firstname))
+        </html>""" % (userid, firstname))

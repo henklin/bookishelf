@@ -131,7 +131,7 @@ input[type=submit] {
 	</a>
 
 	<font size="16" face="Consolas" color="#2E86C1">
-	<hr width=50px align="left">
+	<hr width=1000px align="left">
 	
 	<form action="http://localhost:8080/api/search" method="get">
 	<table align="center">
@@ -256,16 +256,19 @@ input[type=submit] {
 
 <body background="http://wallpaperus.org/wallpapers/03/122/books-1920x1080-wallpaper-1711426.jpg" text=#D6EAF8>
                 
-            <table>
-            <tr><td>
-            <a href="http://localhost:8080/api/">
-            <img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">
-            </a>
-            </td>
-            <td width="1000" align="right">
-            <h2><a href="http://localhost:8080/api/logoutpage"><font size=15 face="Consolas" color="#EBF5FB">Logout</font></a></h2>
-            </td></tr>
-            </table>
+	<table>
+	<tr><td>
+	<form method=post action="http://localhost:8080/api/">
+	<input type="hidden" name="userid" value="%s">
+	<button>
+	<img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">
+	</button>
+	</form>
+	</td>
+	<td width="1000" align="right">
+	<h2><a href="http://localhost:8080/api/logoutpage"><font size=15 face="Consolas" color="#EBF5FB">Logout</font></a></h2>
+	</td></tr>
+	</table>
 
     <font size="16" face="Consolas" color="#2E86C1">
     <hr width=50px align="left">
@@ -317,5 +320,5 @@ input[type=submit] {
 <p align="center">&copy2016&nbsp Bookishelf.com
 </font>
 
-        </html>""" % (returnString))
+        </html>""" % (userid, returnString))
 

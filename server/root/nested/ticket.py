@@ -37,7 +37,7 @@ textarea {
 
 
 input[type=submit] {
-    width: 100px;
+    width: 300px;
 	height: 45px;
     padding: 12px 20px;
     margin: 8px 0;
@@ -52,6 +52,17 @@ input[type=submit] {
 	
 }
 
+button {
+    width: 200px;
+	height: 300px;
+    padding: 0px 0px;
+    margin: 0px;
+    box-sizing: border-box;
+	border-radius:28px;
+	border:0px;
+	display:inline-block;
+
+	}
 
 </style>
 
@@ -62,9 +73,12 @@ input[type=submit] {
 
 	<table>
 	<tr><td>
-	<a href="http://localhost:8080/api/">
+	<form method=post action="http://localhost:8080/api/">
+	<input type="hidden" name="userid" value="%s">
+	<button>
 	<img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">
-	</a>
+	</button>
+	</form>
 	</td>
 	<td width="1000" align="right">
 	<h2><a href="http://localhost:8080/api/logoutpage"><font size=15 face="Consolas" color="#EBF5FB">Logout</font></a></h2>
@@ -76,7 +90,7 @@ input[type=submit] {
 	&nbsp SEND A TICKET
 	</font>
 	</h1>
-	<hr width=50px align="left">
+	<hr width=1000px align="left">
 
 	<font color="#EBF5FB" size="20"><p align="center">Fill in the details for sending the ticket request</font>
 
@@ -110,7 +124,7 @@ input[type=submit] {
 <p align="center">&copy2016&nbsp Bookishelf.com
 </font>
 
-        </html>""" % (userid))
+        </html>""" % (userid, userid))
         
         
     def POST(self, userid, info, answer, open):

@@ -22,6 +22,7 @@ from deleteShoppingCart import DeleteShoppingCart
 from search import SearchResult
 from loginpage import UserLogin
 from loginresult import LoginResult
+from logoutpage import Logout
 from addShoppingCart import AddShoppingCart
 from allBooks import AllBooks
 from loginregister import RegisterPage
@@ -105,6 +106,12 @@ if __name__ == '__main__':
         }
     )
     
+    cherrypy.tree.mount(
+        Logout(), '/api/logoutpage',
+        {'/':
+            {'request.dispatch': cherrypy.dispatch.MethodDispatcher()}
+        }
+    )
     
     cherrypy.tree.mount(
         TicketPage(), '/api/ticket',

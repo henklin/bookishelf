@@ -124,15 +124,23 @@ input[type=submit] {
 </style>
 
             
-            </head>
+            </head> 
             
-            <div align="left">
+            <body background="http://wallpaperus.org/wallpapers/03/122/books-1920x1080-wallpaper-1711426.jpg" text=#D6EAF8>
+            
+            <table>
+            <tr><td>
             <form action="http://127.0.0.1:8080/api/" id="form1" method=post>
             <input type=hidden name="userid" value="%s">
             <button class="button button2" type=submit form="form1">
             <img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">
             </button>
             </form>
+            </td>
+            <td width="1000" align="right">
+            <h2><a href="http://localhost:8080/api/logoutpage"><font size=15 face="Consolas" color="#EBF5FB">Logout</font></a></h2>
+            </td></tr>
+            </table>
             
             <div align="right">
             <form action="http://127.0.0.1:8080/api/shoppingCart" method="post">
@@ -142,21 +150,7 @@ input[type=submit] {
             </button>
             </form>
             </div>
-            
-            
-            <body background="http://wallpaperus.org/wallpapers/03/122/books-1920x1080-wallpaper-1711426.jpg" text=#D6EAF8>
-            
-            <table>
-            <tr><td>
-            <a href="http://localhost:8080/api/">
-            <img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">
-            </a>
-            </td>
-            <td width="1000" align="right">
-            <h2><a href="http://localhost:8080/api/logoutpage"><font size=15 face="Consolas" color="#EBF5FB">Logout</font></a></h2>
-            </td></tr>
-            </table>
-            
+			
             <h1 align="center"><font face="Century Gothic" color="#EBF5FB">%s</font></h1>
             <font size=5 face="Consolas" color="#EBF5FB">
             <hr width=30>
@@ -174,10 +168,7 @@ input[type=submit] {
             <input type=hidden name="bookid" value="%s">
             <input type=hidden name="userid" value="%s">
             <input type="submit" value="Add to Cart">
-            </form>
-            </td>
-            </tr>
-            <tr><td>
+            </form><br><br>
             <form action="http://localhost:8080/api/bookCirclePage" method="post">
             <input type="hidden" value="%s" name="bookid">
             <input type="hidden" value="%s" name="userid">
@@ -245,7 +236,25 @@ input[type=submit] {
 
 <head>
 <title>Book page</title>
-</head>
+
+<style>
+button {
+    width: 200px;
+	height: 300px;
+    padding: 0px 0px;
+    margin: 0px;
+    box-sizing: border-box;
+	border-radius:28px;
+	border:0px;
+	display:inline-block;
+
+	}
+
+</style>
+
+</head>    
+
+<body background="http://wallpaperus.org/wallpapers/03/122/books-1920x1080-wallpaper-1711426.jpg" text=#D6EAF8>
 
     <div align="left">
     <a href="http://127.0.0.1:8080/api/">
@@ -260,19 +269,6 @@ input[type=submit] {
     </button>
     </form>
     </div>
-    
-
-<body background="http://wallpaperus.org/wallpapers/03/122/books-1920x1080-wallpaper-1711426.jpg" text=#D6EAF8>
-
-            
-            <table>
-            <tr><td>
-            <a href="http://localhost:8080/api/">
-            <img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">
-            </a>
-            </td></tr>
-            </table>
-
 
 <h1 align="center"><font face="Century Gothic" color="#EBF5FB">%s</font></h1>
 <font size=5 face="Consolas" color="#EBF5FB">
@@ -286,11 +282,7 @@ input[type=submit] {
 <font size=3>Author-TBA</font><br>
 Price-%s kr<br>
 %s<br>
-</font><br>
-
-</td>
-</tr>
-<br>
+</font>
 </td></tr>
 </table>
 

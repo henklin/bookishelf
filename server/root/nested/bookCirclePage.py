@@ -36,7 +36,7 @@ class BookCirclePage:
             
             
             input[type=submit] {
-            width: 100px;
+            width: 1000px;
             height: 45px;
             padding: 12px 20px;
             margin: 8px 0;
@@ -61,9 +61,12 @@ class BookCirclePage:
             
             <table>
             <tr><td>
-            <a href="http://localhost:8080/api/">
+            <form action="http://127.0.0.1:8080/api/" id="form1" method=post>
+            <input type=hidden name="userid" value="%s">
+            <button class="button button2" type=submit form="form1">
             <img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">
-            </a>
+            </button>
+            </form>
             </td>
             <td width="1000" align="right">
             <h2><a href="http://localhost:8080/api/logoutpage"><font size=15 face="Consolas" color="#EBF5FB">Logout</font></a></h2>
@@ -75,7 +78,7 @@ class BookCirclePage:
             &nbsp Send mail to USER
             </font>
             </h1>
-            <hr width=50px align="left">
+            <hr width=1000px align="left">
             
             <font color="#EBF5FB" size="20"><p align="center">Fill in the details of BOOK</font>
             
@@ -108,7 +111,7 @@ class BookCirclePage:
             </font>
 
             
-            """ % (bookid, userid))
+            """ % (userid, bookid, userid))
 
         
 
