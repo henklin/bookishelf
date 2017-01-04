@@ -20,13 +20,13 @@ class Tickets:
         cur = conn1.cursor()
         
         if typOfTicket == "1":
-            cur.execute("SELECT username, id, open, info, answer FROM ticket INNER JOIN user ON ticket.userid = user.userid")
+            cur.execute("SELECT username, id, open, info, answer FROM mydb.ticket INNER JOIN mydb.user ON ticket.userid = user.userid")
         elif typOfTicket == "2":
             cur.execute("SELECT username, id, open, info, answer FROM ticket INNER JOIN user ON ticket.userid = user.userid WHERE open = true")
         elif typOfTicket == "3":
             cur.execute("SELECT username, id, open, info, answer FROM ticket INNER JOIN user ON ticket.userid = user.userid WHERE open = false")
         
-        name = cur.fetchone()
+        name = cur.fetchall()
         return str(name)
     
     
