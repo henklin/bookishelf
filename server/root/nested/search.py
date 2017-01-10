@@ -16,7 +16,7 @@ class SearchResult:
 
     exposed = True
     
-    def GET(self, title, Genre):
+    def GET(self, title):
         
         conn1 = pymysql.connect(host='localhost', port=3306, user='root', passwd='admin', db='mydb', autocommit=True)
 
@@ -125,44 +125,20 @@ input[type=submit] {
 </head>
 
 <body background="http://wallpaperus.org/wallpapers/03/122/books-1920x1080-wallpaper-1711426.jpg" text=#D6EAF8>
-	
-	<a href="http//localhost:8080/api/">
-	<img src="http://images.clipartpanda.com/embryo-clipart-book17.png" height="50" width="100">
-	</a>
 
-	<font size="16" face="Consolas" color="#2E86C1">
+    
+    <font size="16" face="Consolas" color="#2E86C1">
 	<hr width=1000px align="left">
 	
-	<form action="http://localhost:8080/api/search" method="get">
-	<table align="center">
-
-	<tr><td>
-	Search for another book:</td><td align="left"><input type="text" name="title" maxlength="32" size="16">
-	</td><td>
-	<select name="Genre">
-	  <option value="Fiction">Fiction</option>
-	  <option value="Horror">Horror</option>
-	  <option value="Thriller">Thriller</option>
-	  <option value="Romance">Romance</option>
-	</select>
-	</td>
-
-	<td><input type="submit" value="Search"></td></tr>
-
-	</table>
-
-	</form>
 
 <table align="center">
 <tr>
 <th colspan=5 align="center">Search Results</th>
-<tr></tr></tr>
-<tr>
+</tr>
+</table>
 <a href="http://127.0.0.1:8080/api/bookPage?bookid=2">
 %s
-</a></tr>
-
-</table>
+</a>
 </font>
 </form>
 
@@ -201,7 +177,7 @@ input[type=submit] {
         
         
         
-    def POST(self, title, Genre, userid):
+    def POST(self, title, userid):
         
         conn1 = pymysql.connect(host='localhost', port=3306, user='root', passwd='admin', db='mydb', autocommit=True)
 
@@ -273,34 +249,15 @@ input[type=submit] {
     <font size="16" face="Consolas" color="#2E86C1">
     <hr width=50px align="left">
     
-    <form action="http://localhost:8080/api/search" method="get">
-    <table align="center">
-
-    <tr><td>
-    Search for another book:</td><td align="left"><input type="text" name="title" maxlength="32" size="16">
-    </td><td>
-    <select name="Genre">
-      <option value="Fiction">Fiction</option>
-      <option value="Horror">Horror</option>
-      <option value="Thriller">Thriller</option>
-      <option value="Romance">Romance</option>
-    </select>
-    </td>
-
-    <td><input type="submit" value="Search"></td></tr>
-
-    </table>
-
-    </form>
 
 <table align="center">
 <tr>
 <th colspan=5 align="center">Search Results</th>
-<tr></tr></tr>
-<tr>
+</tr>
+
 <a href="http://127.0.0.1:8080/api/bookPage?bookid=2">
 %s
-</a></tr>
+</a>&nbsp
 
 </table>
 </font>

@@ -31,6 +31,11 @@ class BookPage:
         
         bookPrice = cur.fetchone()
         
+        cur.execute("SELECT author FROM book WHERE id=%s" % bookid)
+        
+        bookAuthor = cur.fetchone()
+        
+        
         cur.execute("SELECT title FROM book WHERE id=%s" % bookid)
         
         bookTitle = cur.fetchone()
@@ -92,14 +97,14 @@ select {
     }
 
 .button1 {
-    width: 0px;
-    height: 0px;
+    width: 100px;
+    height: 100px;
     background-color: Transparent;
     }
 
 .button2 {
-    width: 0px;
-    height: 0px;
+    width: 100px;
+    height: 100px;
     box-sizing: border-box;
     border-radius:28px;
     border:0px;
@@ -160,7 +165,7 @@ input[type=submit] {
             <td><img height="500" width="400" src="%s" alt="book1"></td>
             <td>
             <font color="#EBF5FB" size=5 face="Source Sans Pro">Details<br><br>%s<br>
-            <font size=3>Author-TBA</font><br>
+            <font size=3>Author: %s</font><br>
             Price-%s kr<br>
             %s<br>
             </font><br>
@@ -185,7 +190,7 @@ input[type=submit] {
             
             
             </html>
-""" % (userid, userid, bookTitle[0], bookImage[0], bookDesc[0], bookPrice[0], qtyString, bookid, userid, bookid, userid))
+""" % (userid, userid, bookTitle[0], bookImage[0], bookDesc[0], bookAuthor[0], bookPrice[0], qtyString, bookid, userid, bookid, userid))
 
             
             
@@ -210,6 +215,10 @@ input[type=submit] {
         cur.execute("SELECT price FROM book WHERE id=%s" % bookid)
         
         bookPrice = cur.fetchone()
+        
+        cur.execute("SELECT author FROM book WHERE id=%s" % bookid)
+    
+        bookAuthor = cur.fetchone()
         
         cur.execute("SELECT qty FROM book WHERE id=%s" % bookid)
         
@@ -279,7 +288,7 @@ button {
 <td><img height="500" width="400" src="%s" alt="book1"></td>
 <td>
 <font color="#EBF5FB" size=5 face="Source Sans Pro">Details<br><br>%s<br>
-<font size=3>Author-TBA</font><br>
+<font size=3>Author-%s</font><br>
 Price-%s kr<br>
 %s<br>
 </font>
@@ -293,7 +302,7 @@ Price-%s kr<br>
 </body>
 
 
-        </html>""" % (bookTitle[0], bookImage[0], bookDesc[0], bookPrice[0], qtyString))
+        </html>""" % (bookTitle[0], bookImage[0], bookDesc[0], bookAuthor[0], bookPrice[0], qtyString))
 
     
   

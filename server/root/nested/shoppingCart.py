@@ -80,7 +80,7 @@ class ShoppingCart:
         
         shoppingCartPrice = cur.fetchall()
         
-        cur.execute("SELECT credit from shoppingCart INNER JOIN book on book.id=shoppingCart.bookid INNER JOIN user on user.userid=shoppingCart.userid where shoppingCart.userid=%s" % userid)
+        cur.execute("SELECT credit from user where userid=%s" % userid)
 
         
         usercredit = cur.fetchall()
@@ -113,7 +113,7 @@ class ShoppingCart:
         if(newCredit < 0):
             creditString = "Not enough credit"
         else:
-            creditString = ("Credit after purchase: %s" % newCredit)
+            creditString = ("Credit after purchase: %s kr" % newCredit)
         
         finalString = ShoppingCart.StringGen(self, userid)
       
@@ -152,8 +152,8 @@ Shopping cart
 <br><br>
 <div align="center">
 <p><b>Total amount: %s kr</b></p>
-<p><b>Your credit: %s kr</b></p>
-<p><b>%s kr</b></p>
+<font color="#FCF3CF"><p><b>Your credit: %s kr</b></p></font>
+<font color="red"><p><b>%s</b></p></font>
 <br><br>
 </div>
 <br><br>

@@ -163,17 +163,8 @@ input[type=submit] {
 	<table align="center" cellpadding="25">
 
 	<tr><td>	<font color="#EBF5FB" size="20">
-    Search:</td><td align="left"><input type="text" name="title" maxlength="32" size="16">
-	</font>
-    </td><td>
-    <select name="Genre">
-      <option value="Fiction">Fiction</option>
-      <option value="Horror">Horror</option>
-      <option value="Thriller">Thriller</option>
-      <option value="Romance">Romance</option>
-    </select>
+    Search:</font></td><td align="left"><input type="text" name="title" maxlength="32" size="16">
     </td>
-
     <td><input type="submit" value="Search"></td></tr>
 
     </table>
@@ -399,10 +390,14 @@ select {
 	}
 
 .button1 {
-    width: 0px;
-	height: 0px;
+    width: 100px;
+	height: 100px;
 	background-color: Transparent;
-	}
+    box-sizing: border-box;
+    border-radius:28px;
+    border:0px;
+    display:inline-block;
+    }
 
 .button2 {
     width: 200px;
@@ -474,13 +469,6 @@ input[type=submit] {
     <tr><td>
     Search:</td><td align="left"><input type="text" name="title" maxlength="32" size="16">
     <input type="hidden" name="userid" value="%s">
-    </td><td>
-    <select name="Genre">
-      <option value="Fiction">Fiction</option>
-      <option value="Horror">Horror</option>
-      <option value="Thriller">Thriller</option>
-      <option value="Romance">Romance</option>
-    </select>
     </td>
 
     <td><input type="submit" value="Search"></td></tr>
